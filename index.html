@@ -518,17 +518,38 @@
               </div>
 
               <div class="actions">
-                <button class="ghost" onclick="applyPreset('eid')">
-                  عِيدُكُم مُبَارَك (تكوين حر)
+                <button class="ghost" onclick="applyPreset('eid_flame')">
+                  🔥 شعلة
                 </button>
-                <button class="ghost" onclick="applyPreset('eid_droplet')">
-                  عِيدُكُم مُبَارَك (القطرة)
+                <button class="ghost" onclick="applyPreset('eid_oval')">
+                  🔲 بيضاوي رأسي
                 </button>
-                <button class="ghost" onclick="applyPreset('islamic')">
-                  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (بيضاوي)
+                <button class="ghost" onclick="applyPreset('eid_circle')">
+                  ⭕ ختم دائري
                 </button>
-                <button class="ghost" onclick="applyPreset('ramadan')">
-                  رَمَضَان كَرِيم (شعلة)
+                <button class="ghost" onclick="applyPreset('eid_sym')">
+                  ⚖️ شعار متماثل
+                </button>
+                <button class="ghost" onclick="applyPreset('eid_horiz')">
+                  ➖ أفقي أنيق
+                </button>
+                <button class="ghost" onclick="applyPreset('eid_free')">
+                  ✨ حر متماسك
+                </button>
+              </div>
+              <div
+                class="actions"
+                style="
+                  margin-top: 15px;
+                  padding-top: 15px;
+                  border-top: 1px solid var(--line);
+                "
+              >
+                <button class="secondary" onclick="applyPreset('islamic')">
+                  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </button>
+                <button class="secondary" onclick="applyPreset('ramadan')">
+                  رَمَضَان كَرِيم
                 </button>
               </div>
             </section>
@@ -1138,43 +1159,56 @@
 
       // قوالب العيد الإسلامية العبقرية العبقرية
       function applyPreset(type) {
-        if (type === "eid") {
-          $("textInput").value = "عِيدُكُم مُبَارَك";
+        // إعدادات مشتركة لتهاني العيد
+        if (type.startsWith("eid_")) {
+          $("textInput").value = "عِيد مُبَارَك";
           $("textType").value = "عبارة قصيرة";
-          $("composition").value = "تكوين حر متماسك";
-          $("script").value = "مزيج ديواني + ثلث";
-          $("color").value = "ذهبي فاخر";
-          $("background").value = "خلفية شفافة PNG";
-          $("decor").value = "هلال ونجوم ناعمة";
-          $("mood").value = "روحاني";
-        } else if (type === "eid_droplet") {
-          $("textInput").value = "عِيدُكُم مُبَارَك";
-          $("textType").value = "عبارة قصيرة";
-          $("composition").value = "قطرة";
           $("script").value = "حر مستوحى من الديواني";
-          $("color").value = "ذهبى فاخر";
-          $("background").value = "خلفية شفافة PNG";
-          $("decor").value = "نقاط ضوء فقط";
-          $("mood").value = "نوراني";
-        } else if (type === "islamic") {
+          $("color").value = "ذهبي فاخر";
+          $("background").value = "خلفية سوداء داكنة";
+          $("decor").value = "بدون زخارف";
+          $("mood").value = "فاخر";
+          $("strictHa").checked = false;
+        }
+
+        // التكوينات الخاصة بكل زر للعيد
+        if (type === "eid_flame") {
+          $("composition").value = "شعلة";
+        } else if (type === "eid_oval") {
+          $("composition").value = "بيضاوي رأسي";
+        } else if (type === "eid_circle") {
+          $("composition").value = "ختم دائري";
+        } else if (type === "eid_sym") {
+          $("composition").value = "شعار متماثل";
+        } else if (type === "eid_horiz") {
+          $("composition").value = "تكوين أفقي أنيق";
+        } else if (type === "eid_free") {
+          $("composition").value = "تكوين حر متماسك";
+        }
+
+        // قوالب إسلامية ورمضانية
+        else if (type === "islamic") {
           $("textInput").value = "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ";
           $("textType").value = "آية قصيرة";
           $("composition").value = "بيضاوي رأسي";
           $("script").value = "حر مستوحى من الثلث";
-          $("color").value = "ذهبي فاخر";
+          $("color").value = "أبيض نقي";
           $("background").value = "خلفية سوداء داكنة";
           $("decor").value = "زخارف إسلامية خفيفة";
           $("mood").value = "نوراني";
+          $("strictHa").checked = false;
         } else if (type === "ramadan") {
           $("textInput").value = "رَمَضَان كَرِيم";
           $("textType").value = "عبارة قصيرة";
           $("composition").value = "شعلة";
           $("script").value = "حر مستوحى من الديواني";
-          $("color").value = "أبيض نقي";
+          $("color").value = "ذهبي فاخر";
           $("background").value = "خلفية كحلية ليلية";
           $("decor").value = "هلال ونجوم ناعمة";
           $("mood").value = "روحاني";
+          $("strictHa").checked = false;
         }
+
         generateAll();
         showStatus("تم تطبيق القالب بنجاح");
       }
