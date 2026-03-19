@@ -1,0 +1,1332 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>مولِّد برومبتات الخط العربي الفني الفاخر</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* لوحة ألوان عصرية (زجاج داكن مع ذهبي) */
+        --bg-1: #0a0f18;
+        --bg-2: #111827;
+        --bg-3: #0f172a;
+        --panel: rgba(30, 41, 59, 0.4);
+        --panel-2: rgba(255, 255, 255, 0.02);
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --gold: #d4af37;
+        --gold-2: #b8860b;
+        --gold-glow: rgba(212, 175, 55, 0.15);
+        --line: rgba(255, 255, 255, 0.08);
+        --ok: #10b981;
+        --danger: #ef4444;
+        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.1);
+        --radius-xl: 24px;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: "Tajawal", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(
+            circle at 18% 8%,
+            rgba(212, 175, 55, 0.1),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 82% 16%,
+            rgba(56, 189, 248, 0.08),
+            transparent 25%
+          ),
+          linear-gradient(180deg, var(--bg-1), var(--bg-2) 42%, var(--bg-3));
+        min-height: 100vh;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      a {
+        color: var(--gold);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+      a:hover {
+        color: #fde047;
+        text-shadow: 0 0 8px var(--gold-glow);
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 30px 20px 60px;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+        padding: 40px 24px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        opacity: 0.5;
+      }
+      h1 {
+        margin: 0 0 16px;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        line-height: 1.3;
+        font-weight: 800;
+        background: linear-gradient(135deg, #fff, var(--gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .lead {
+        margin: 0 auto;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 1.05rem;
+        max-width: 900px;
+      }
+      .hero-badges {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .hero-badge {
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        background: rgba(212, 175, 55, 0.08);
+        color: var(--gold);
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 24px;
+        align-items: start;
+      }
+      .panel {
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--line);
+        background: var(--panel);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: var(--shadow);
+      }
+      .panel-head {
+        padding: 20px 24px;
+        font-weight: 700;
+        font-size: 1.15rem;
+        border-bottom: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .panel-body {
+        padding: 24px;
+      }
+      .stack {
+        display: grid;
+        gap: 20px;
+      }
+      .section {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+        transition: var(--transition);
+      }
+      .section:hover {
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: var(--shadow-glow);
+      }
+      .section-title {
+        margin: 0 0 14px;
+        color: var(--gold);
+        font-size: 1.05rem;
+        font-weight: 700;
+      }
+      .section-note {
+        color: var(--muted);
+        line-height: 1.7;
+        margin: -6px 0 16px;
+        font-size: 0.95rem;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .field.full {
+        grid-column: 1 / -1;
+      }
+      label {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .hint {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 0.85rem;
+      }
+      input[type="text"],
+      textarea,
+      select {
+        width: 100%;
+        border: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.3);
+        color: var(--text);
+        border-radius: var(--radius-md);
+        padding: 12px 14px;
+        font-size: 1rem;
+        font-family: inherit;
+        outline: none;
+        transition: var(--transition);
+      }
+      input[type="text"]:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px var(--gold-glow);
+        background: rgba(0, 0, 0, 0.5);
+        transform: translateY(-1px);
+      }
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+        line-height: 1.8;
+      }
+      select option {
+        background: var(--bg-2);
+        color: var(--text);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .chip {
+        position: relative;
+        display: inline-block;
+      }
+      .chip input {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .chip span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        user-select: none;
+        font-size: 0.95rem;
+        transition: var(--transition);
+      }
+      .chip input:checked + span {
+        background: var(--gold-glow);
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+      .actions,
+      .save-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      button {
+        border: 0;
+        border-radius: var(--radius-md);
+        padding: 12px 18px;
+        font-size: 0.96rem;
+        font-weight: 700;
+        font-family: inherit;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      button:hover {
+        transform: translateY(-2px);
+      }
+      button:active {
+        transform: translateY(0) scale(0.98);
+      }
+      .primary {
+        background: linear-gradient(135deg, var(--gold), var(--gold-2));
+        color: #000;
+        box-shadow: 0 4px 15px var(--gold-glow);
+      }
+      .primary:hover {
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+      }
+      .secondary {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        border: 1px solid var(--line);
+      }
+      .secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .ghost {
+        background: rgba(212, 175, 55, 0.08);
+        color: var(--gold);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+      .ghost:hover {
+        background: rgba(212, 175, 55, 0.15);
+      }
+      .danger {
+        background: rgba(239, 68, 68, 0.1);
+        color: #fca5a5;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+      }
+      .danger:hover {
+        background: rgba(239, 68, 68, 0.2);
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        padding: 10px 16px;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--ok);
+        font-size: 0.95rem;
+        font-weight: 500;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: var(--transition);
+      }
+      .status.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .outputs {
+        display: grid;
+        gap: 20px;
+      }
+      .card {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+      }
+      .card h3 {
+        margin: 0 0 12px;
+        color: var(--gold);
+        font-size: 1.05rem;
+      }
+      .codebox {
+        min-height: 100px;
+        padding: 16px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.4);
+        white-space: pre-wrap;
+        line-height: 1.8;
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .summary-grid {
+        display: grid;
+        gap: 10px;
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.95rem;
+      }
+      .summary-item strong {
+        color: var(--gold);
+        margin-left: 6px;
+      }
+      .mini-note,
+      .foot-note {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.9rem;
+      }
+      .footer-links {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: center;
+        font-size: 0.95rem;
+      }
+      .counts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .count-pill {
+        border-radius: 999px;
+        padding: 8px 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 720px) {
+        .container {
+          padding-inline: 12px;
+        }
+        .hero,
+        .panel-body {
+          padding: 20px;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-badges {
+          gap: 8px;
+        }
+        .actions,
+        .save-actions {
+          gap: 10px;
+        }
+        button {
+          width: 100%;
+        }
+        .footer-links {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <section class="hero">
+        <h1>مولِّد برومبتات الخط العربي الفني الفاخر</h1>
+        <p class="lead">
+          الاستخدام: اكتب العبارة أو الاسم، ثم اختر شكل التكوين ونوع الخط
+          والألوان والخلفية والزخارف ونمط الإخراج، وسيولّد لك الموقع برومبتًا
+          عربيًا احترافيًا، مع نسخة إنجليزية وNegative Constraints جاهزة للنسخ
+          أو التنزيل. ولاستكمال التصميم، الصق البرومبت في نانو بانانا 2.
+        </p>
+        <div class="hero-badges">
+          <span class="hero-badge">مناسب للاسم المفرد والثنائي والثلاثي</span>
+          <span class="hero-badge">متوافق مع GitHub Pages</span>
+          <span class="hero-badge">نسخ وحفظ وتنزيل مباشر</span>
+        </div>
+      </section>
+
+      <main class="layout">
+        <section class="panel">
+          <div class="panel-head">إعدادات المولد</div>
+          <div class="panel-body stack">
+            <section
+              class="section"
+              style="
+                border-color: var(--gold);
+                background: rgba(212, 175, 55, 0.05);
+              "
+            >
+              <h2 class="section-title">🌙 قوالب جاهزة (هدية العيد - عبقري)</h2>
+              <p class="section-note">
+                نقرة واحدة لضبط الإعدادات للحصول على أفضل التكوينات الإسلامية
+                وتهاني العيد. انقر فوق الزر المقابل للشكل الذي تريده، ثم قم
+                بتغيير النص إذا لزم الأمر.
+              </p>
+
+              <div
+                style="
+                  margin-bottom: 20px;
+                  text-align: center;
+                  border: 1px solid var(--line);
+                  border-radius: var(--radius-md);
+                  padding: 10px;
+                  background: rgba(0, 0, 0, 0.3);
+                "
+              >
+                <img
+                  src="INSERT_YOUR_IMAGE_LINK_HERE"
+                  alt="معاينة التكوينات"
+                  style="max-width: 100%; height: auto; border-radius: 8px"
+                />
+                <div
+                  style="margin-top: 8px; font-size: 0.9rem; color: var(--gold)"
+                >
+                  انقر فوق الأزرار أدناه لتطبيق الإعدادات المقابلة لهذه
+                  التكوينات.
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="ghost" onclick="applyPreset('eid')">
+                  عِيدُكُم مُبَارَك (تكوين حر)
+                </button>
+                <button class="ghost" onclick="applyPreset('eid_droplet')">
+                  عِيدُكُم مُبَارَك (القطرة)
+                </button>
+                <button class="ghost" onclick="applyPreset('islamic')">
+                  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ (بيضاوي)
+                </button>
+                <button class="ghost" onclick="applyPreset('ramadan')">
+                  رَمَضَان كَرِيم (شعلة)
+                </button>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">النص الأساسي</h2>
+              <p class="section-note">
+                اكتب النص الذي تريد تحويله إلى تكوين خطي عربي فني، ثم حدّد نوعه
+                حتى يوازن المولّد التكوين بشكل أفضل.
+              </p>
+              <div class="form-grid">
+                <div class="field full">
+                  <label for="textInput">العبارة أو الاسم</label>
+                  <input
+                    id="textInput"
+                    type="text"
+                    value="محمد علي"
+                    placeholder="مثال: محمد علي / نور الهداية / ليلة القدر"
+                  />
+                  <div class="hint">
+                    يمكنك كتابة اسم مفرد، اسم ثنائي، اسم ثلاثي، أو عبارة قصيرة.
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="textType">نوع النص</label>
+                  <select id="textType">
+                    <option>اسم مفرد</option>
+                    <option selected>اسم ثنائي</option>
+                    <option>اسم ثلاثي</option>
+                    <option>عبارة قصيرة</option>
+                    <option>آية قصيرة</option>
+                    <option>شعار أو اسم علامة</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="composition">شكل التكوين</label>
+                  <select id="composition">
+                    <option selected>قطرة</option>
+                    <option>شعلة</option>
+                    <option>بيضاوي رأسي</option>
+                    <option>ختم دائري</option>
+                    <option>تكوين رأسي طويل</option>
+                    <option>تكوين أفقي أنيق</option>
+                    <option>شعار متماثل</option>
+                    <option>تكوين حر متماسك</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">بناء الحروف والأسلوب</h2>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="script">نوع الخط</label>
+                  <select id="script">
+                    <option selected>حر مستوحى من الديواني</option>
+                    <option>حر مستوحى من الثلث</option>
+                    <option>مزيج ديواني + ثلث</option>
+                    <option>كوفي ليّن</option>
+                    <option>خط حديث زخرفي</option>
+                    <option>خط عربي فاخر مخصص</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="interweave">درجة الترابط</label>
+                  <select id="interweave">
+                    <option>ترابط خفيف</option>
+                    <option selected>ترابط متوسط</option>
+                    <option>ترابط قوي</option>
+                    <option>اندماج كامل في كتلة واحدة</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="readability">مستوى الوضوح</label>
+                  <select id="readability">
+                    <option>جمالي أكثر من مقروء</option>
+                    <option selected>متوازن بين الجمال والوضوح</option>
+                    <option>واضح قدر الإمكان</option>
+                    <option>مناسب للشعار مع وضوح متوسط</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="mood">الطابع العام</label>
+                  <select id="mood">
+                    <option selected>فاخر</option>
+                    <option>روحاني</option>
+                    <option>ملكي</option>
+                    <option>حديث</option>
+                    <option>بسيط</option>
+                    <option>هادئ</option>
+                    <option>نوراني</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">الألوان والخلفية والإخراج</h2>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="color">اللون</label>
+                  <select id="color">
+                    <option selected>ذهبي فاخر</option>
+                    <option>أبيض نقي</option>
+                    <option>أسود ملكي</option>
+                    <option>فضي معدني</option>
+                    <option>أزرق ليلي</option>
+                    <option>أخضر زمردي</option>
+                    <option>عنابي</option>
+                    <option>ذهبي مع كحلي</option>
+                    <option>أبيض مع توهج أزرق</option>
+                    <option>نحاسي معتّق</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="background">الخلفية</label>
+                  <select id="background">
+                    <option selected>خلفية شفافة PNG</option>
+                    <option>بدون خلفية</option>
+                    <option>خلفية سوداء داكنة</option>
+                    <option>خلفية كحلية ليلية</option>
+                    <option>خلفية بيضاء نظيفة</option>
+                    <option>خلفية ضبابية ناعمة</option>
+                    <option>خلفية فاخرة مزخرفة</option>
+                    <option>خلفية نجوم خفيفة</option>
+                    <option>خلفية بسيطة جدًا</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="decor">الزخارف</label>
+                  <select id="decor">
+                    <option selected>بدون زخارف</option>
+                    <option>توهج خفيف</option>
+                    <option>هلال ونجوم ناعمة</option>
+                    <option>زخارف إسلامية خفيفة</option>
+                    <option>إطار زخرفي بسيط</option>
+                    <option>نقاط ضوء فقط</option>
+                    <option>خامة ذهبية ناعمة</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="rendering">نوع الإخراج</label>
+                  <select id="rendering">
+                    <option selected>ذهبي بارز</option>
+                    <option>مسطح نظيف</option>
+                    <option>ثلاثي الأبعاد</option>
+                    <option>نقش معدني</option>
+                    <option>حبر تقليدي</option>
+                    <option>محفور على جلد</option>
+                    <option>طباعة فاخرة</option>
+                    <option>ختم شعاري</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">خيارات بسيطة</h2>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="details">مستوى التفاصيل</label>
+                  <select id="details">
+                    <option>بسيط</option>
+                    <option selected>متوسط</option>
+                    <option>عالٍ</option>
+                    <option>عالٍ جدًا وفخم</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="ratio">المقاس / النسبة</label>
+                  <select id="ratio">
+                    <option selected>1:1</option>
+                    <option>4:5</option>
+                    <option>9:16</option>
+                    <option>16:9</option>
+                    <option>3:4</option>
+                  </select>
+                </div>
+                <div class="field full">
+                  <label>الخيارات الخاصة</label>
+                  <div class="chips">
+                    <label class="chip"
+                      ><input type="checkbox" id="balanceWords" checked /><span
+                        >موازنة الكلمات حسب الطول</span
+                      ></label
+                    >
+                    <label class="chip"
+                      ><input type="checkbox" id="avoidCrowd" checked /><span
+                        >تقليل التزاحم</span
+                      ></label
+                    >
+                    <label class="chip"
+                      ><input type="checkbox" id="allowGlow" /><span
+                        >توهج نوراني خفيف</span
+                      ></label
+                    >
+                    <label class="chip"
+                      ><input type="checkbox" id="logoMode" /><span
+                        >مناسب كشعار</span
+                      ></label
+                    >
+                    <label class="chip"
+                      ><input type="checkbox" id="strictHa" /><span
+                        >تأكيد الهاء بدون نقاط (ـه)</span
+                      ></label
+                    >
+                    <label class="chip"
+                      ><input type="checkbox" id="englishOutput" checked /><span
+                        >توليد نسخة إنجليزية</span
+                      ></label
+                    >
+                  </div>
+                </div>
+                <div class="field full">
+                  <label for="extraNotes">ملاحظات إضافية</label>
+                  <textarea
+                    id="extraNotes"
+                    placeholder="مثال: أريده قريبًا من شكل القطرة في الصورة، أو مناسبًا للطباعة، أو أكثر روحانية، أو أكثر فخامة."
+                  ></textarea>
+                </div>
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">أزرار التنفيذ</h2>
+              <div class="actions">
+                <button class="primary" id="generateBtn">توليد البرومبت</button>
+                <button class="secondary" id="copyAllBtn">نسخ الكل</button>
+                <button class="secondary" id="copyArabicBtn">
+                  نسخ البرومبت
+                </button>
+                <button class="secondary" id="copyEnglishBtn">
+                  نسخ الإنجليزي
+                </button>
+                <button class="secondary" id="copyNegativeBtn">
+                  نسخ Negative
+                </button>
+                <button class="secondary" id="downloadBtn">تنزيل TXT</button>
+                <button class="ghost" id="openNanoBtn">افتح نانو بانانا</button>
+                <button class="ghost" id="copyOpenNanoBtn">
+                  انسخ وافتح نانو بانانا
+                </button>
+                <button class="danger" id="resetBtn">إعادة تعيين</button>
+              </div>
+              <div class="mini-note" style="margin-top: 12px">
+                زر <strong>انسخ وافتح نانو بانانا</strong> ينسخ المحتوى الكامل
+                أولًا، ثم يفتح Gemini في تبويب جديد.
+              </div>
+              <div class="counts">
+                <div class="count-pill" id="countText">عدد أحرف النص: 0</div>
+                <div class="count-pill" id="countWords">عدد الكلمات: 0</div>
+              </div>
+              <div class="status" id="statusMsg">تمت العملية بنجاح</div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">حفظ الإعدادات</h2>
+              <div class="save-actions">
+                <button class="secondary" id="saveBtn">حفظ الإعدادات</button>
+                <button class="secondary" id="restoreBtn">
+                  استعادة المحفوظ
+                </button>
+                <button class="danger" id="deleteSavedBtn">حذف المحفوظ</button>
+              </div>
+              <div class="mini-note" style="margin-top: 12px">
+                يتم الحفظ محليًا داخل المتصفح نفسه، من دون أي API أو رفع بيانات
+                خارجية.
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">المخرجات</div>
+          <div class="panel-body outputs">
+            <div class="card">
+              <h3>ملخص سريع</h3>
+              <div class="summary-grid" id="summaryBox"></div>
+            </div>
+
+            <div class="card">
+              <h3>البرومبت الأساسي</h3>
+              <div class="codebox" id="arabicPrompt"></div>
+            </div>
+
+            <div class="card">
+              <h3>English Prompt</h3>
+              <div class="codebox" id="englishPrompt"></div>
+            </div>
+
+            <div class="card">
+              <h3>Negative Constraints</h3>
+              <div class="codebox" id="negativePrompt"></div>
+            </div>
+
+            <div class="card">
+              <h3>ملاحظات عملية</h3>
+              <div class="foot-note">
+                ابدأ بقيم متوازنة: <strong>ترابط متوسط</strong> +
+                <strong>متوازن بين الجمال والوضوح</strong> +
+                <strong>تقليل التزاحم</strong>. إذا كان النص ثلاثيًّا أو طويلًا،
+                فاختر تكوينًا رأسيًا أو بيضاويًا مع تفعيل موازنة الكلمات. وإذا
+                كان الهدف شعارًا، فعِّل خيار <strong>مناسب كشعار</strong> لتصبح
+                الصياغة أكثر دقة وثباتًا.
+              </div>
+            </div>
+
+            <div class="footer-links">
+              <a href="https://chatgpt.com" target="_blank" rel="noopener"
+                >تمت البرمجة والتطوير لخدمة المحتوى العربي والإسلامي باستخدام
+                ChatGPT</a
+              >
+              <a
+                href="https://t.me/Insan_Notebook"
+                target="_blank"
+                rel="noopener"
+                >Insan_Notebook | كشكول إنسان</a
+              >
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const NANO_BANANA_URL = "https://gemini.google.com/";
+      const STORAGE_KEY = "arabic_calligraphy_prompt_generator_settings_v2";
+      const $ = (id) => document.getElementById(id);
+
+      const defaults = {
+        textInput: "محمد علي",
+        textType: "اسم ثنائي",
+        composition: "قطرة",
+        script: "حر مستوحى من الديواني",
+        interweave: "ترابط متوسط",
+        readability: "متوازن بين الجمال والوضوح",
+        mood: "فاخر",
+        color: "ذهبي فاخر",
+        background: "خلفية شفافة PNG",
+        decor: "بدون زخارف",
+        rendering: "ذهبي بارز",
+        details: "متوسط",
+        ratio: "1:1",
+        balanceWords: true,
+        avoidCrowd: true,
+        allowGlow: false,
+        logoMode: false,
+        strictHa: false,
+        englishOutput: true,
+        extraNotes: "",
+      };
+      const enMap = {
+        textType: {
+          "اسم مفرد": "single-name composition",
+          "اسم ثنائي": "two-word name composition",
+          "اسم ثلاثي": "three-word name composition",
+          "عبارة قصيرة": "short phrase composition",
+          "آية قصيرة": "short verse composition",
+          "شعار أو اسم علامة": "logo or brand-name composition",
+        },
+        composition: {
+          قطرة: "droplet silhouette",
+          شعلة: "upward flame silhouette",
+          "بيضاوي رأسي": "vertical oval silhouette",
+          "ختم دائري": "circular emblem silhouette",
+          "تكوين رأسي طويل": "tall vertical composition",
+          "تكوين أفقي أنيق": "elegant horizontal composition",
+          "شعار متماثل": "symmetrical logo-style composition",
+          "تكوين حر متماسك": "cohesive freeform composition",
+        },
+        script: {
+          "حر مستوحى من الديواني": "free expressive script inspired by Diwani",
+          "حر مستوحى من الثلث": "free expressive script inspired by Thuluth",
+          "مزيج ديواني + ثلث": "a hybrid of Diwani and Thuluth influences",
+          "كوفي ليّن": "soft Kufic-inspired calligraphy",
+          "خط حديث زخرفي": "modern ornamental Arabic script",
+          "خط عربي فاخر مخصص": "luxury custom Arabic calligraphy style",
+        },
+        interweave: {
+          "ترابط خفيف": "light interweaving",
+          "ترابط متوسط": "balanced interweaving",
+          "ترابط قوي": "strong interweaving",
+          "اندماج كامل في كتلة واحدة": "full fusion into one compact mass",
+        },
+        readability: {
+          "جمالي أكثر من مقروء": "more artistic than literal",
+          "متوازن بين الجمال والوضوح":
+            "balanced between beauty and readability",
+          "واضح قدر الإمكان": "as readable as possible",
+          "مناسب للشعار مع وضوح متوسط":
+            "logo-friendly with moderate readability",
+        },
+        mood: {
+          فاخر: "luxurious",
+          روحاني: "spiritual",
+          ملكي: "royal",
+          حديث: "modern",
+          بسيط: "minimalist",
+          هادئ: "calm",
+          نوراني: "luminous",
+        },
+        color: {
+          "ذهبي فاخر": "luxurious gold",
+          "أبيض نقي": "pure white",
+          "أسود ملكي": "royal black",
+          "فضي معدني": "metallic silver",
+          "أزرق ليلي": "night blue",
+          "أخضر زمردي": "emerald green",
+          عنابي: "deep burgundy",
+          "ذهبي مع كحلي": "gold with deep navy",
+          "أبيض مع توهج أزرق": "white with a blue glow",
+          "نحاسي معتّق": "antique copper",
+        },
+        background: {
+          "خلفية شفافة PNG": "transparent PNG background",
+          "بدون خلفية": "no background",
+          "خلفية سوداء داكنة": "dark black background",
+          "خلفية كحلية ليلية": "deep night-navy background",
+          "خلفية بيضاء نظيفة": "clean white background",
+          "خلفية ضبابية ناعمة": "soft misty background",
+          "خلفية فاخرة مزخرفة": "luxurious ornamental background",
+          "خلفية نجوم خفيفة": "subtle starry background",
+          "خلفية بسيطة جدًا": "very minimal background",
+        },
+        decor: {
+          "بدون زخارف": "no additional ornaments",
+          "توهج خفيف": "a subtle glow",
+          "هلال ونجوم ناعمة": "soft crescent and stars",
+          "زخارف إسلامية خفيفة": "subtle Islamic motifs",
+          "إطار زخرفي بسيط": "a simple decorative frame",
+          "نقاط ضوء فقط": "small points of light only",
+          "خامة ذهبية ناعمة": "a soft golden texture",
+        },
+        rendering: {
+          "ذهبي بارز": "embossed gold rendering",
+          "مسطح نظيف": "clean flat rendering",
+          "ثلاثي الأبعاد": "premium 3D rendering",
+          "نقش معدني": "metal-engraved rendering",
+          "حبر تقليدي": "traditional ink rendering",
+          "محفور على جلد": "engraved leather rendering",
+          "طباعة فاخرة": "luxury print-style rendering",
+          "ختم شعاري": "logo-stamp rendering",
+        },
+        details: {
+          بسيط: "simple",
+          متوسط: "medium",
+          عالٍ: "high",
+          "عالٍ جدًا وفخم": "very high and luxurious",
+        },
+      };
+
+      function getValue(id) {
+        const el = $(id);
+        return el.type === "checkbox" ? el.checked : el.value.trim();
+      }
+      function setValue(id, value) {
+        const el = $(id);
+        if (!el) return;
+        if (el.type === "checkbox") el.checked = Boolean(value);
+        else el.value = value;
+      }
+
+      function collectData() {
+        return {
+          textInput: getValue("textInput") || "النص",
+          textType: getValue("textType"),
+          composition: getValue("composition"),
+          script: getValue("script"),
+          interweave: getValue("interweave"),
+          readability: getValue("readability"),
+          mood: getValue("mood"),
+          color: getValue("color"),
+          background: getValue("background"),
+          decor: getValue("decor"),
+          rendering: getValue("rendering"),
+          details: getValue("details"),
+          ratio: getValue("ratio"),
+          balanceWords: getValue("balanceWords"),
+          avoidCrowd: getValue("avoidCrowd"),
+          allowGlow: getValue("allowGlow"),
+          logoMode: getValue("logoMode"),
+          strictHa: getValue("strictHa"),
+          englishOutput: getValue("englishOutput"),
+          extraNotes: getValue("extraNotes"),
+        };
+      }
+      function getExtraArabic(data) {
+        const extras = [];
+        if (data.balanceWords) extras.push("مع توزيع متوازن للكلمات حسب الطول");
+        if (data.avoidCrowd)
+          extras.push("مع تقليل التزاحم بين الحروف والكلمات");
+        if (data.allowGlow) extras.push("مع توهج نوراني خفيف ومدروس");
+        if (data.logoMode) extras.push("ومراعاة ملاءمته كشعار احترافي");
+        if (data.strictHa)
+          extras.push(
+            "مع التأكد التام من رسم الحرف الأخير كهاء (هـ) منفصلة بدون أي نقاط فوقها نهائياً",
+          );
+        if (data.extraNotes) extras.push(data.extraNotes);
+        return extras.join("، ");
+      }
+      function getExtraEnglish(data) {
+        const extras = [];
+        if (data.balanceWords)
+          extras.push("balance the words according to their length");
+        if (data.avoidCrowd)
+          extras.push("avoid overcrowding and keep spacing elegant");
+        if (data.allowGlow) extras.push("add a soft controlled luminous glow");
+        if (data.logoMode)
+          extras.push("make it suitable for a premium logo application");
+        if (data.strictHa)
+          extras.push(
+            "ensure the last letter is a dotless Ha (ه) and strictly NOT a Ta Marbuta (ة)",
+          );
+        if (data.extraNotes) extras.push(data.extraNotes);
+        return extras.join("; ");
+      }
+      function generateArabicPrompt(data) {
+        const extra = getExtraArabic(data);
+        const extraLine = extra ? `، ${extra}` : "";
+        const typeNote = data.textType.includes("اسم")
+          ? "بحيث يظل توزيع الكلمات متناسقًا ويحافظ على شخصية الاسم"
+          : "بحيث يخدم معنى العبارة ويحافظ على جاذبيتها البصرية";
+        return `صمّم النص "${data.textInput}" كعمل خط عربي فني ${data.mood} بأسلوب ${data.script}، مع ${data.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام على هيئة ${data.composition} بما يناسب كونه ${data.textType}، ${typeNote}، مع الحفاظ على مستوى وضوح ${data.readability}. استخدم لونًا ${data.color}، مع ${data.background}، وأضف ${data.decor}. يكون الإخراج بأسلوب ${data.rendering}، وبتفاصيل ${data.details}، بنسبة تكوين ${data.ratio}${extraLine}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
+      }
+      function mapValue(group, value) {
+        return (enMap[group] && enMap[group][value]) || value;
+      }
+      function generateEnglishPrompt(data) {
+        const extra = getExtraEnglish(data);
+        const extraLine = extra ? ` Additional guidance: ${extra}.` : "";
+        return `Create an Arabic calligraphy artwork for the text "${data.textInput}" in a ${mapValue("mood", data.mood)} visual style, using ${mapValue("script", data.script)}. The letters should feature ${mapValue("interweave", data.interweave)} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${mapValue("composition", data.composition)}, suitable for a ${mapValue("textType", data.textType)}. Keep it ${mapValue("readability", data.readability)}. Use a ${mapValue("color", data.color)} palette with a ${mapValue("background", data.background)}, and include ${mapValue("decor", data.decor)}. Render it as ${mapValue("rendering", data.rendering)} with a ${mapValue("details", data.details)} detail level in a ${data.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.${extraLine}`;
+      }
+      function generateNegativePrompt(data) {
+        let base =
+          "distorted Arabic letters, unreadable Arabic text, broken calligraphy, extra letters, duplicated strokes, messy composition, overcrowded layout, poor spacing, low quality, blurry details, malformed Arabic typography, disconnected letterforms, chaotic background, random ornaments, deformed curves";
+        if (data && data.strictHa) {
+          base +=
+            ", extra dots on the last letter, dots above the letter Ha, Ta Marbuta instead of Ha, two dots on top of the final letter";
+        }
+        return base;
+      }
+      function renderSummary(data) {
+        const items = [
+          ["النص", data.textInput],
+          ["نوع النص", data.textType],
+          ["شكل التكوين", data.composition],
+          ["نوع الخط", data.script],
+          ["درجة الترابط", data.interweave],
+          ["الوضوح", data.readability],
+          ["الطابع العام", data.mood],
+          ["الألوان", data.color],
+          ["الخلفية", data.background],
+          ["الزخارف", data.decor],
+          ["نوع الإخراج", data.rendering],
+          ["التفاصيل", data.details],
+          ["المقاس", data.ratio],
+        ];
+        const extras = [];
+        if (data.balanceWords) extras.push("موازنة الكلمات");
+        if (data.avoidCrowd) extras.push("تقليل التزاحم");
+        if (data.allowGlow) extras.push("توهج خفيف");
+        if (data.logoMode) extras.push("وضع الشعار");
+        if (data.strictHa) extras.push("تأكيد الهاء بدون نقاط");
+        if (data.englishOutput) extras.push("نسخة إنجليزية");
+        if (extras.length) items.push(["خيارات خاصة", extras.join(" + ")]);
+        if (data.extraNotes) items.push(["ملاحظات", data.extraNotes]);
+        $("summaryBox").innerHTML = items
+          .map(
+            ([k, v]) =>
+              `<div class="summary-item"><strong>${k}:</strong> ${v}</div>`,
+          )
+          .join("");
+      }
+      function updateCounts(text) {
+        const trimmed = (text || "").trim();
+        const words = trimmed ? trimmed.split(/\s+/).filter(Boolean) : [];
+        $("countText").textContent = `عدد أحرف النص: ${trimmed.length}`;
+        $("countWords").textContent = `عدد الكلمات: ${words.length}`;
+      }
+      function buildAllText(ar, en, neg) {
+        return [
+          "البرومبت الأساسي",
+          ar,
+          "",
+          "English Prompt",
+          en,
+          "",
+          "Negative Constraints",
+          neg,
+        ].join("\n");
+      }
+
+      function generateAll() {
+        const data = collectData();
+        const ar = generateArabicPrompt(data);
+        const en = data.englishOutput
+          ? generateEnglishPrompt(data)
+          : "تم تعطيل النسخة الإنجليزية من الإعدادات.";
+        const neg = generateNegativePrompt(data);
+        $("arabicPrompt").textContent = ar;
+        $("englishPrompt").textContent = en;
+        $("negativePrompt").textContent = neg;
+        renderSummary(data);
+        updateCounts(data.textInput);
+      }
+
+      // قوالب العيد الإسلامية العبقرية العبقرية
+      function applyPreset(type) {
+        if (type === "eid") {
+          $("textInput").value = "عِيدُكُم مُبَارَك";
+          $("textType").value = "عبارة قصيرة";
+          $("composition").value = "تكوين حر متماسك";
+          $("script").value = "مزيج ديواني + ثلث";
+          $("color").value = "ذهبي فاخر";
+          $("background").value = "خلفية شفافة PNG";
+          $("decor").value = "هلال ونجوم ناعمة";
+          $("mood").value = "روحاني";
+        } else if (type === "eid_droplet") {
+          $("textInput").value = "عِيدُكُم مُبَارَك";
+          $("textType").value = "عبارة قصيرة";
+          $("composition").value = "قطرة";
+          $("script").value = "حر مستوحى من الديواني";
+          $("color").value = "ذهبى فاخر";
+          $("background").value = "خلفية شفافة PNG";
+          $("decor").value = "نقاط ضوء فقط";
+          $("mood").value = "نوراني";
+        } else if (type === "islamic") {
+          $("textInput").value = "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ";
+          $("textType").value = "آية قصيرة";
+          $("composition").value = "بيضاوي رأسي";
+          $("script").value = "حر مستوحى من الثلث";
+          $("color").value = "ذهبي فاخر";
+          $("background").value = "خلفية سوداء داكنة";
+          $("decor").value = "زخارف إسلامية خفيفة";
+          $("mood").value = "نوراني";
+        } else if (type === "ramadan") {
+          $("textInput").value = "رَمَضَان كَرِيم";
+          $("textType").value = "عبارة قصيرة";
+          $("composition").value = "شعلة";
+          $("script").value = "حر مستوحى من الديواني";
+          $("color").value = "أبيض نقي";
+          $("background").value = "خلفية كحلية ليلية";
+          $("decor").value = "هلال ونجوم ناعمة";
+          $("mood").value = "روحاني";
+        }
+        generateAll();
+        showStatus("تم تطبيق القالب بنجاح");
+      }
+
+      function showStatus(message, isError = false) {
+        const el = $("statusMsg");
+        el.textContent = message;
+        el.style.borderColor = isError
+          ? "rgba(239, 68, 68, 0.3)"
+          : "rgba(16, 185, 129, 0.3)";
+        el.style.background = isError
+          ? "rgba(239, 68, 68, 0.1)"
+          : "rgba(16, 185, 129, 0.1)";
+        el.style.color = isError ? "#fca5a5" : "var(--ok)";
+        el.classList.add("show");
+        clearTimeout(showStatus._timer);
+        showStatus._timer = setTimeout(() => el.classList.remove("show"), 1800);
+      }
+      async function copyText(text, successMessage = "تم النسخ بنجاح") {
+        try {
+          await navigator.clipboard.writeText(text);
+          showStatus(successMessage);
+        } catch (err) {
+          showStatus("تعذر النسخ التلقائي. انسخ المحتوى يدويًا.", true);
+        }
+      }
+      function getCurrentOutputs() {
+        return {
+          ar: $("arabicPrompt").textContent.trim(),
+          en: $("englishPrompt").textContent.trim(),
+          neg: $("negativePrompt").textContent.trim(),
+        };
+      }
+      function resetAll() {
+        Object.entries(defaults).forEach(([key, value]) =>
+          setValue(key, value),
+        );
+        generateAll();
+        showStatus("تمت إعادة التعيين");
+      }
+      function saveSettings() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(collectData()));
+        showStatus("تم حفظ الإعدادات");
+      }
+      function restoreSettings() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          showStatus("لا توجد إعدادات محفوظة", true);
+          return;
+        }
+        try {
+          const saved = JSON.parse(raw);
+          Object.entries(defaults).forEach(([key, value]) =>
+            setValue(key, key in saved ? saved[key] : value),
+          );
+          generateAll();
+          showStatus("تمت استعادة الإعدادات");
+        } catch {
+          showStatus("تعذر قراءة الإعدادات المحفوظة", true);
+        }
+      }
+      function deleteSaved() {
+        localStorage.removeItem(STORAGE_KEY);
+        showStatus("تم حذف الإعدادات المحفوظة");
+      }
+      function downloadTxt() {
+        const { ar, en, neg } = getCurrentOutputs();
+        const content = buildAllText(ar, en, neg);
+        const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "arabic_calligraphy_prompt.txt";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        showStatus("تم تنزيل الملف");
+      }
+      function openNano() {
+        window.open(NANO_BANANA_URL, "_blank", "noopener");
+      }
+      async function copyAndOpenNano() {
+        const { ar, en, neg } = getCurrentOutputs();
+        await copyText(buildAllText(ar, en, neg), "تم النسخ وفتح نانو بانانا");
+        openNano();
+      }
+
+      $("generateBtn").addEventListener("click", generateAll);
+      $("copyAllBtn").addEventListener("click", () => {
+        const { ar, en, neg } = getCurrentOutputs();
+        copyText(buildAllText(ar, en, neg), "تم نسخ كل المحتوى");
+      });
+      $("copyArabicBtn").addEventListener("click", () =>
+        copyText(
+          $("arabicPrompt").textContent.trim(),
+          "تم نسخ البرومبت الأساسي",
+        ),
+      );
+      $("copyEnglishBtn").addEventListener("click", () =>
+        copyText(
+          $("englishPrompt").textContent.trim(),
+          "تم نسخ النسخة الإنجليزية",
+        ),
+      );
+      $("copyNegativeBtn").addEventListener("click", () =>
+        copyText(
+          $("negativePrompt").textContent.trim(),
+          "تم نسخ Negative Constraints",
+        ),
+      );
+      $("downloadBtn").addEventListener("click", downloadTxt);
+      $("openNanoBtn").addEventListener("click", openNano);
+      $("copyOpenNanoBtn").addEventListener("click", copyAndOpenNano);
+      $("resetBtn").addEventListener("click", resetAll);
+      $("saveBtn").addEventListener("click", saveSettings);
+      $("restoreBtn").addEventListener("click", restoreSettings);
+      $("deleteSavedBtn").addEventListener("click", deleteSaved);
+
+      [
+        "textInput",
+        "textType",
+        "composition",
+        "script",
+        "interweave",
+        "readability",
+        "mood",
+        "color",
+        "background",
+        "decor",
+        "rendering",
+        "details",
+        "ratio",
+        "balanceWords",
+        "avoidCrowd",
+        "allowGlow",
+        "logoMode",
+        "strictHa",
+        "englishOutput",
+        "extraNotes",
+      ].forEach((id) => {
+        const el = $(id);
+        if (!el) return;
+        el.addEventListener(
+          el.type === "checkbox" || el.tagName === "SELECT"
+            ? "change"
+            : "input",
+          generateAll,
+        );
+      });
+      restoreSettings();
+      generateAll();
+    </script>
+  </body>
+</html>
