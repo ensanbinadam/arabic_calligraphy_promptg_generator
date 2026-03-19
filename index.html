@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ar" dir="rtl">
   <head>
@@ -25,7 +26,7 @@
         --line: rgba(255, 255, 255, 0.08);
         --ok: #10b981;
         --danger: #ef4444;
-        --shadow: 0 25px 50px -12px rgba(45, 15, 15, 0.5);
+        --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         --shadow-glow: 0 0 20px rgba(212, 175, 55, 0.1);
         --radius-xl: 24px;
         --radius-lg: 16px;
@@ -490,9 +491,9 @@
             >
               <h2 class="section-title">🌙 قوالب جاهزة (هدية العيد - عبقري)</h2>
               <p class="section-note">
-                نقرة واحدة لضبط الإعدادات للحصول على أفضل التكوينات الإسلامية
-                وتهاني العيد. انقر فوق الزر المقابل للشكل الذي تريده، ثم قم
-                بتغيير النص إذا لزم الأمر.
+                نقرة واحدة لضبط الإعدادات للحصول على تكوينات خطية جاهزة ومقارنة
+                سريعة بين أنماط البناء المختلفة. اختر التكوين المناسب ثم غيّر
+                النص كما تشاء.
               </p>
 
               <div
@@ -538,8 +539,11 @@
                 <button class="ghost" onclick="applyPreset('eid_circle')">
                   ⭕ ختم دائري
                 </button>
-                <button class="ghost" onclick="applyPreset('eid_tall')">
-                  ⬆️ رأسي طويل
+                <button class="ghost" onclick="applyPreset('eid_vstack')">
+                  ⬆️ رأسي تراكبي
+                </button>
+                <button class="ghost" onclick="applyPreset('eid_vextend')">
+                  🗼 رأسي حرفي ممتد
                 </button>
                 <button class="ghost" onclick="applyPreset('eid_horiz')">
                   ➖ أفقي أنيق
@@ -549,22 +553,6 @@
                 </button>
                 <button class="ghost" onclick="applyPreset('eid_free')">
                   ✨ حر متماسك
-                </button>
-              </div>
-              <div
-                class="actions"
-                style="
-                  margin-top: 15px;
-                  padding-top: 15px;
-                  border-top: 1px solid var(--line);
-                  justify-content: center;
-                "
-              >
-                <button class="secondary" onclick="applyPreset('islamic')">
-                  بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
-                </button>
-                <button class="secondary" onclick="applyPreset('ramadan')">
-                  رَمَضَان كَرِيم
                 </button>
               </div>
             </section>
@@ -588,6 +576,21 @@
                     يمكنك كتابة اسم مفرد، اسم ثنائي، اسم ثلاثي، أو عبارة قصيرة.
                   </div>
                 </div>
+
+                <div class="field full">
+                  <label for="footerText">نص التذييل / التوقيع (اختياري)</label>
+                  <input
+                    id="footerText"
+                    type="text"
+                    value=""
+                    placeholder="مثال: محبكم فلان / عائلة آل فلان..."
+                  />
+                  <div class="hint">
+                    نص إضافي يظهر أسفل المخطوطة الرئيسية بخط مستقيم. اتركه
+                    فارغاً إذا لم ترغب به.
+                  </div>
+                </div>
+
                 <div class="field">
                   <label for="textType">نوع النص</label>
                   <select id="textType">
@@ -606,11 +609,15 @@
                     <option>شعلة</option>
                     <option>بيضاوي رأسي</option>
                     <option>ختم دائري</option>
-                    <option>تكوين رأسي طويل</option>
+                    <option>تكوين رأسي تراكبي</option>
+                    <option>تكوين رأسي حرفي ممتد</option>
                     <option>تكوين أفقي أنيق</option>
                     <option>شعار متماثل</option>
                     <option>تكوين حر متماسك</option>
                   </select>
+                  <div class="hint" id="compositionHint">
+                    الرأسي التراكبي مناسب للأسماء الطويلة والعبارات المركبة، أما الرأسي الحرفي الممتد فهو أنسب للكلمات المفردة والعبارات القصيرة مثل "عيد مبارك".
+                  </div>
                 </div>
               </div>
             </section>
@@ -866,17 +873,19 @@
               <div class="foot-note">
                 ابدأ بقيم متوازنة: <strong>ترابط متوسط</strong> +
                 <strong>متوازن بين الجمال والوضوح</strong> +
-                <strong>تقليل التزاحم</strong>. إذا كان النص ثلاثيًّا أو طويلًا،
-                فاختر تكوينًا رأسيًا أو بيضاويًا مع تفعيل موازنة الكلمات. وإذا
-                كان الهدف شعارًا، فعِّل خيار <strong>مناسب كشعار</strong> لتصبح
-                الصياغة أكثر دقة وثباتًا.
+                <strong>تقليل التزاحم</strong>. للنصوص الطويلة اختر
+                <strong>التكوين الرأسي التراكبي</strong>، وللكلمات المفردة أو
+                العبارات القصيرة مثل "عيد مبارك" اختر
+                <strong>التكوين الرأسي الحرفي الممتد</strong>. وإذا كان الهدف
+                شعارًا، فعِّل خيار <strong>مناسب كشعار</strong> لتصبح الصياغة
+                أكثر دقة وثباتًا.
               </div>
             </div>
 
             <div class="footer-links">
-              <a href="https://gemini.google.com" target="_blank" rel="noopener"
+              <a href="https://chatgpt.com" target="_blank" rel="noopener"
                 >تمت البرمجة والتطوير لخدمة المحتوى العربي والإسلامي باستخدام
-                Gemini</a
+                ChatGPT</a
               >
               <a
                 href="https://t.me/Insan_Notebook"
@@ -897,6 +906,7 @@
 
       const defaults = {
         textInput: "محمد علي",
+        footerText: "",
         textType: "اسم ثنائي",
         composition: "قطرة",
         script: "حر مستوحى من الديواني",
@@ -931,7 +941,8 @@
           شعلة: "upward flame silhouette",
           "بيضاوي رأسي": "vertical oval silhouette",
           "ختم دائري": "circular emblem silhouette",
-          "تكوين رأسي طويل": "tall vertical composition",
+          "تكوين رأسي تراكبي": "stacked vertical composition",
+          "تكوين رأسي حرفي ممتد": "vertically extended letter-built composition",
           "تكوين أفقي أنيق": "elegant horizontal composition",
           "شعار متماثل": "symmetrical logo-style composition",
           "تكوين حر متماسك": "cohesive freeform composition",
@@ -1027,12 +1038,41 @@
         if (el.type === "checkbox") el.checked = Boolean(value);
         else el.value = value;
       }
+      function getWordCount(text) {
+        return (text || "").trim().split(/\s+/).filter(Boolean).length;
+      }
+      function normalizeLegacyComposition(value, textInput = "") {
+        if (value !== "تكوين رأسي طويل") return value;
+        return getWordCount(textInput) <= 2
+          ? "تكوين رأسي حرفي ممتد"
+          : "تكوين رأسي تراكبي";
+      }
+      function getCompositionHint(composition) {
+        const hints = {
+          "قطرة": "مناسب للأسماء والعبارات التي تحتاج هيئة انسيابية مغلقة تشبه القطرة.",
+          "شعلة": "أفضل للتكوينات الصاعدة ذات الإحساس الروحاني أو الحركي.",
+          "بيضاوي رأسي": "يعطي كتلة متوازنة وطولاً هادئًا مع احتواء جيد للنص.",
+          "ختم دائري": "مناسب للشعارات والأختام والتكوينات المتماثلة نسبيًا.",
+          "تكوين رأسي تراكبي": "الأفضل للأسماء الطويلة والعبارات المركبة؛ يبني النص على طبقات رأسية متصلة بصريًا.",
+          "تكوين رأسي حرفي ممتد": "الأفضل للكلمات المفردة أو العبارات القصيرة؛ يبني العمود الرأسي من الحروف نفسها لا من طبقات كلمات منفصلة.",
+          "تكوين أفقي أنيق": "مناسب للأسماء الثنائية والعبارات القصيرة الواضحة والممتدة عرضيًا.",
+          "شعار متماثل": "مناسب للشعارات الرسمية والتكوينات ذات المحور المركزي الواضح.",
+          "تكوين حر متماسك": "يعطي حرية تشكيلية أكبر مع الحفاظ على كتلة واحدة متماسكة.",
+        };
+        return hints[composition] || "اختر الشكل الأنسب لطول النص وطبيعته البصرية.";
+      }
+      function updateCompositionHint() {
+        const hint = $("compositionHint");
+        if (!hint) return;
+        hint.textContent = getCompositionHint($("composition").value);
+      }
 
       function collectData() {
         return {
           textInput: getValue("textInput") || "النص",
+          footerText: getValue("footerText"),
           textType: getValue("textType"),
-          composition: getValue("composition"),
+          composition: normalizeLegacyComposition(getValue("composition"), getValue("textInput")),
           script: getValue("script"),
           interweave: getValue("interweave"),
           readability: getValue("readability"),
@@ -1054,6 +1094,7 @@
       }
       function getExtraArabic(data) {
         const extras = [];
+        const wordCount = getWordCount(data.textInput);
         if (data.balanceWords) extras.push("مع توزيع متوازن للكلمات حسب الطول");
         if (data.avoidCrowd)
           extras.push("مع تقليل التزاحم بين الحروف والكلمات");
@@ -1063,11 +1104,42 @@
           extras.push(
             "مع التأكد التام من رسم الحرف الأخير كهاء (هـ) منفصلة بدون أي نقاط فوقها نهائياً",
           );
+
+        if (data.composition === "تكوين رأسي تراكبي") {
+          let verticalGuide = "مع بناء التكوين على محور رأسي مركزي واضح وبهيئة طويلة ونحيفة، وتوزيع الكلمات فوق بعضها بشكل متصل بصرياً لا كصفوف أفقية منفصلة، مع تضييق العرض النسبي، وتثبيت قاعدة سفلية أقوى، والحفاظ على انسياب الحروف ضمن كتلة واحدة متماسكة دون اختلاق أي حروف أو كلمات زائدة";
+          if (wordCount === 1) {
+            verticalGuide = "مع بناء الكلمة على محور رأسي مركزي واضح وبهيئة طويلة ونحيفة، مع امتداد صاعد للأعلى وقاعدة سفلية متوازنة، ومنع أي ميل أفقي أو تفكك جانبي، بحيث تبدو الكلمة ككتلة خطية رأسية واحدة متماسكة دون اختلاق أي حروف أو كلمات زائدة";
+          } else if (wordCount === 2) {
+            verticalGuide = "مع ترتيب الكلمتين فوق بعضهما على محور رأسي مركزي واضح، بحيث تكون الكلمة العليا أخف والأدنى أرسخ لتثبيت التكوين، مع اتصال بصري بين المستويين ومنع ظهورهما كسطرين أفقيين منفصلين، والحفاظ على هيئة طويلة ونحيفة دون اختلاق أي حروف أو كلمات زائدة";
+          } else if (wordCount >= 3) {
+            verticalGuide = "مع توزيع الكلمات على طبقات رأسية متصلة بصرياً حول محور مركزي واحد، بحيث تتدرج من الأعلى إلى الأسفل بانسياب وتوازن، وتبقى الطبقة السفلى أعرض قليلاً لتثبيت الكتلة، مع منع تحولها إلى أسطر أفقية متباعدة أو وحدات منفصلة، والحفاظ على هيئة رأسية طويلة ونحيفة دون اختلاق أي حروف أو كلمات زائدة";
+          }
+          extras.push(verticalGuide);
+        }
+
+        if (data.composition === "تكوين رأسي حرفي ممتد") {
+          let extendedGuide = "مع بناء التكوين الرأسي من الحروف نفسها على محور عمودي واحد، لا بمجرد وضع الكلمات كسطور فوق بعضها؛ يجب أن تبدو العبارة كلها كعمود خطي عربي واحد طويل ومتماسك، بحروف متداخلة وممتدة رأسياً، مع تضييق العرض ومنع الصفوف الأفقية المنفصلة أو الكتل المستقلة";
+          if (wordCount === 1) {
+            extendedGuide = "مع بناء الكلمة نفسها كعمود خطي رأسي واحد، بحروف ممتدة للأعلى ومتداخلة حول محور مركزي واضح، مع هيئة نحيفة وطويلة وقاعدة متوازنة، ومنع الانتشار الأفقي أو التشتت الجانبي";
+          } else if (wordCount === 2) {
+            extendedGuide = "مع دمج الكلمتين داخل عمود خطي رأسي واحد مبني من امتداد الحروف نفسها، بحيث تتصل الكلمة الثانية بالأولى بصرياً داخل نفس البنية الطولية، دون أن تبدوا كسطرين منفصلين أو طبقتين واضحتين، ومع الحفاظ على هيئة طويلة ونحيفة ومحور مركزي ثابت";
+          } else if (wordCount >= 3) {
+            extendedGuide = "مع محاولة صهر الكلمات في عمود خطي رأسي واحد بقدر الإمكان، عبر امتداد الحروف وتداخلها حول محور مركزي طويل، مع تجنب المظهر الطبقي الواضح أو الصفوف المنفصلة، والحفاظ على أكبر قدر من الانسجام والاتصال البصري";
+          }
+          extras.push(extendedGuide);
+        }
+
+        if (data.footerText)
+          extras.push(
+            `مع إضافة نص تذييلي مستقل في الأسفل مكتوب فيه حرفياً "${data.footerText}" كمخطوطة عربية فنية جرافيكية (وليست كتابة عادية أو خطاً مطبوعاً)، تمتد بشكل أفقي مستقيم وواضح، وتكون أصغر حجماً ولا تندمج مع التكوين الرئيسي بل تظهر كتوقيع خطي أنيق`,
+          );
         if (data.extraNotes) extras.push(data.extraNotes);
         return extras.join("، ");
       }
+
       function getExtraEnglish(data) {
         const extras = [];
+        const wordCount = getWordCount(data.textInput);
         if (data.balanceWords)
           extras.push("balance the words according to their length");
         if (data.avoidCrowd)
@@ -1079,6 +1151,35 @@
           extras.push(
             "ensure the last letter is a dotless Ha (ه) and strictly NOT a Ta Marbuta (ة)",
           );
+
+        if (data.composition === "تكوين رأسي تراكبي") {
+          let verticalGuide = "build the composition around a clear central vertical axis with a tall slender silhouette; stack the words in a visually connected way rather than separate horizontal rows; keep the width relatively narrow, give the lower part a stronger base, and maintain one cohesive calligraphic mass without generating any extra words or pseudo-letters";
+          if (wordCount === 1) {
+            verticalGuide = "build the single word around a clear central vertical axis with a tall slender silhouette, an upward rising motion, and a balanced lower base; avoid any horizontal spread or side fragmentation, and keep it as one cohesive vertical calligraphic mass without generating any extra words or pseudo-letters";
+          } else if (wordCount === 2) {
+            verticalGuide = "stack the two words on a clear central vertical axis so the upper word feels lighter and the lower word feels more grounded, with visual connection between both levels; avoid making them look like two separate horizontal lines, and preserve a tall slender silhouette without generating any extra words or pseudo-letters";
+          } else if (wordCount >= 3) {
+            verticalGuide = "distribute the words across visually connected vertical tiers around one central axis, flowing from top to bottom with balance; make the lowest tier slightly wider to stabilize the composition, avoid turning them into separated horizontal lines or disconnected units, and preserve a tall slender silhouette without generating any extra words or pseudo-letters";
+          }
+          extras.push(verticalGuide);
+        }
+
+        if (data.composition === "تكوين رأسي حرفي ممتد") {
+          let extendedGuide = "build the vertical composition from the letterforms themselves along one central vertical axis, not by simply placing separate words as rows; the whole phrase should feel like one tall narrow Arabic calligraphy column with vertically elongated interwoven letterforms, avoiding separated horizontal tiers or disconnected word blocks";
+          if (wordCount === 1) {
+            extendedGuide = "build the single word itself as one tall narrow vertical calligraphy column, with elongated letterforms rising upward around a clear central axis, a balanced lower base, and no horizontal spread or side fragmentation";
+          } else if (wordCount === 2) {
+            extendedGuide = "merge the two words into one vertically extended calligraphic column built from the letterforms themselves, so the second word connects visually to the first within the same tall structure; avoid making them look like two separate rows or obvious stacked layers, and keep a stable central axis with a narrow silhouette";
+          } else if (wordCount >= 3) {
+            extendedGuide = "try to fuse the words into one vertically extended calligraphic column as much as possible through elongated interwoven letterforms around a tall central axis; avoid obvious stacked rows or isolated layers, while preserving visual harmony and a narrow upward silhouette";
+          }
+          extras.push(extendedGuide);
+        }
+
+        if (data.footerText)
+          extras.push(
+            `include a separate smaller horizontal text below the main composition that reads literally "${data.footerText}", which must be rendered as artistic graphic calligraphy (NOT a standard computer font or typed text), acting as a clear readable elegant signature independent of the main silhouette`,
+          );
         if (data.extraNotes) extras.push(data.extraNotes);
         return extras.join("; ");
       }
@@ -1088,7 +1189,7 @@
         const typeNote = data.textType.includes("اسم")
           ? "بحيث يظل توزيع الكلمات متناسقًا ويحافظ على شخصية الاسم"
           : "بحيث يخدم معنى العبارة ويحافظ على جاذبيتها البصرية";
-        return `صمّم النص "${data.textInput}" كعمل خط عربي فني ${data.mood} بأسلوب ${data.script}، مع ${data.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام على هيئة ${data.composition} بما يناسب كونه ${data.textType}، ${typeNote}، مع الحفاظ على مستوى وضوح ${data.readability}. استخدم لونًا ${data.color}، مع ${data.background}، وأضف ${data.decor}. يكون الإخراج بأسلوب ${data.rendering}، وبتفاصيل ${data.details}، بنسبة تكوين ${data.ratio}${extraLine}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
+        return `صمّم النص "${data.textInput}" حرفياً (بدون أي كلمات زائدة أو نقصان) كعمل خط عربي فني ${data.mood} بأسلوب ${data.script}، مع ${data.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام على هيئة ${data.composition} بما يناسب كونه ${data.textType}، ${typeNote}، مع الحفاظ على مستوى وضوح ${data.readability}. استخدم لونًا ${data.color}، مع ${data.background}، وأضف ${data.decor}. يكون الإخراج بأسلوب ${data.rendering}، وبتفاصيل ${data.details}، بنسبة تكوين ${data.ratio}${extraLine}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
       }
       function mapValue(group, value) {
         return (enMap[group] && enMap[group][value]) || value;
@@ -1096,14 +1197,22 @@
       function generateEnglishPrompt(data) {
         const extra = getExtraEnglish(data);
         const extraLine = extra ? ` Additional guidance: ${extra}.` : "";
-        return `Create an Arabic calligraphy artwork for the text "${data.textInput}" in a ${mapValue("mood", data.mood)} visual style, using ${mapValue("script", data.script)}. The letters should feature ${mapValue("interweave", data.interweave)} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${mapValue("composition", data.composition)}, suitable for a ${mapValue("textType", data.textType)}. Keep it ${mapValue("readability", data.readability)}. Use a ${mapValue("color", data.color)} palette with a ${mapValue("background", data.background)}, and include ${mapValue("decor", data.decor)}. Render it as ${mapValue("rendering", data.rendering)} with a ${mapValue("details", data.details)} detail level in a ${data.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.${extraLine}`;
+        return `Create an Arabic calligraphy artwork strictly and literally for the text "${data.textInput}" (no extra words or letters) in a ${mapValue("mood", data.mood)} visual style, using ${mapValue("script", data.script)}. The letters should feature ${mapValue("interweave", data.interweave)} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${mapValue("composition", data.composition)}, suitable for a ${mapValue("textType", data.textType)}. Keep it ${mapValue("readability", data.readability)}. Use a ${mapValue("color", data.color)} palette with a ${mapValue("background", data.background)}, and include ${mapValue("decor", data.decor)}. Render it as ${mapValue("rendering", data.rendering)} with a ${mapValue("details", data.details)} detail level in a ${data.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.${extraLine}`;
       }
       function generateNegativePrompt(data) {
         let base =
-          "distorted Arabic letters, unreadable Arabic text, broken calligraphy, extra letters, duplicated strokes, messy composition, overcrowded layout, poor spacing, low quality, blurry details, malformed Arabic typography, disconnected letterforms, chaotic background, random ornaments, deformed curves";
+          "distorted Arabic letters, unreadable Arabic text, broken calligraphy, extra letters, extra words, duplicated words, filler text, pseudo-Arabic shapes, unrequested characters, standard digital font, typed text, computer font, duplicated strokes, messy composition, overcrowded layout, poor spacing, low quality, blurry details, malformed Arabic typography, disconnected letterforms, chaotic background, random ornaments, deformed curves";
         if (data && data.strictHa) {
           base +=
             ", extra dots on the last letter, dots above the letter Ha, Ta Marbuta instead of Ha, two dots on top of the final letter";
+        }
+        if (data && data.composition === "تكوين رأسي تراكبي") {
+          base +=
+            ", side-by-side words, wide horizontal layout, disconnected vertical tiers, separate poster rows, flat stacked text lines";
+        }
+        if (data && data.composition === "تكوين رأسي حرفي ممتد") {
+          base +=
+            ", separated word blocks, obvious stacked rows, layered poster text, wide composition, horizontal text layout, disconnected vertical letters";
         }
         return base;
       }
@@ -1131,6 +1240,7 @@
         if (data.strictHa) extras.push("تأكيد الهاء بدون نقاط");
         if (data.englishOutput) extras.push("نسخة إنجليزية");
         if (extras.length) items.push(["خيارات خاصة", extras.join(" + ")]);
+        if (data.footerText) items.push(["التذييل", data.footerText]);
         if (data.extraNotes) items.push(["ملاحظات", data.extraNotes]);
         $("summaryBox").innerHTML = items
           .map(
@@ -1172,9 +1282,8 @@
         updateCounts(data.textInput);
       }
 
-      // قوالب العيد الإسلامية العبقرية العبقرية
       function applyPreset(type) {
-        // إعدادات مشتركة لتهاني العيد
+        if (type === "eid_tall") type = "eid_vstack";
         if (type.startsWith("eid_")) {
           $("textInput").value = "عِيدُكُم مُبَارَك";
           $("textType").value = "عبارة قصيرة";
@@ -1184,9 +1293,9 @@
           $("decor").value = "بدون زخارف";
           $("mood").value = "فاخر";
           $("strictHa").checked = false;
+          $("footerText").value = "";
         }
 
-        // التكوينات الـ 8 الخاصة بكل زر
         if (type === "eid_droplet") {
           $("composition").value = "قطرة";
         } else if (type === "eid_flame") {
@@ -1195,39 +1304,19 @@
           $("composition").value = "بيضاوي رأسي";
         } else if (type === "eid_circle") {
           $("composition").value = "ختم دائري";
-        } else if (type === "eid_tall") {
-          $("composition").value = "تكوين رأسي طويل";
+        } else if (type === "eid_vstack") {
+          $("composition").value = "تكوين رأسي تراكبي";
+          $("ratio").value = "4:5";
+        } else if (type === "eid_vextend") {
+          $("composition").value = "تكوين رأسي حرفي ممتد";
+          $("ratio").value = "4:5";
         } else if (type === "eid_horiz") {
           $("composition").value = "تكوين أفقي أنيق";
         } else if (type === "eid_sym") {
           $("composition").value = "شعار متماثل";
         } else if (type === "eid_free") {
           $("composition").value = "تكوين حر متماسك";
-        }
-
-        // قوالب إسلامية ورمضانية
-        else if (type === "islamic") {
-          $("textInput").value = "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ";
-          $("textType").value = "آية قصيرة";
-          $("composition").value = "بيضاوي رأسي";
-          $("script").value = "حر مستوحى من الثلث";
-          $("color").value = "أبيض نقي";
-          $("background").value = "خلفية سوداء داكنة";
-          $("decor").value = "زخارف إسلامية خفيفة";
-          $("mood").value = "نوراني";
-          $("strictHa").checked = false;
-        } else if (type === "ramadan") {
-          $("textInput").value = "رَمَضَان كَرِيم";
-          $("textType").value = "عبارة قصيرة";
-          $("composition").value = "شعلة";
-          $("script").value = "حر مستوحى من الديواني";
-          $("color").value = "ذهبي فاخر";
-          $("background").value = "خلفية كحلية ليلية";
-          $("decor").value = "هلال ونجوم ناعمة";
-          $("mood").value = "روحاني";
-          $("strictHa").checked = false;
-        }
-
+        updateCompositionHint();
         generateAll();
         showStatus("تم تطبيق القالب بنجاح");
       }
@@ -1265,6 +1354,7 @@
         Object.entries(defaults).forEach(([key, value]) =>
           setValue(key, value),
         );
+        updateCompositionHint();
         generateAll();
         showStatus("تمت إعادة التعيين");
       }
@@ -1280,9 +1370,16 @@
         }
         try {
           const saved = JSON.parse(raw);
-          Object.entries(defaults).forEach(([key, value]) =>
-            setValue(key, key in saved ? saved[key] : value),
-          );
+          Object.entries(defaults).forEach(([key, value]) => {
+            const finalValue = key in saved ? saved[key] : value;
+            setValue(
+              key,
+              key === "composition"
+                ? normalizeLegacyComposition(finalValue, saved.textInput || defaults.textInput)
+                : finalValue,
+            );
+          });
+          updateCompositionHint();
           generateAll();
           showStatus("تمت استعادة الإعدادات");
         } catch {
@@ -1347,8 +1444,11 @@
       $("restoreBtn").addEventListener("click", restoreSettings);
       $("deleteSavedBtn").addEventListener("click", deleteSaved);
 
+      $("composition").addEventListener("change", updateCompositionHint);
+
       [
         "textInput",
+        "footerText",
         "textType",
         "composition",
         "script",
@@ -1378,6 +1478,7 @@
           generateAll,
         );
       });
+      updateCompositionHint();
       restoreSettings();
       generateAll();
     </script>
