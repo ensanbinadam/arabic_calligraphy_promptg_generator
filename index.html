@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="color-scheme" content="light only" />
     <title>الخطاط العربي v7.1 - مولد برومبتات الذكاء الاصطناعي</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1901,7 +1902,17 @@
             "فائق الدقة للنشر",
             "تفاصيل محددة بلا ازدحام",
           ],
-          ratios: ["1:1", "4:5", "9:16", "16:9", "3:4", "2:3", "3:2", "5:4", "21:9"],
+          ratios: [
+            "1:1",
+            "4:5",
+            "9:16",
+            "16:9",
+            "3:4",
+            "2:3",
+            "3:2",
+            "5:4",
+            "21:9",
+          ],
           models: [
             "عام (نانو بانانا / Midjourney)",
             "Midjourney (V6)",
@@ -2028,8 +2039,7 @@
             "خلفية مخملية داكنة": "dark velvet background",
             "خلفية مسجد ضبابية": "soft blurred mosque background",
             "خلفية تدرج هادئ": "calm subtle gradient background",
-            "خلفية هندسية إسلامية خافتة":
-              "subtle Islamic geometric background",
+            "خلفية هندسية إسلامية خافتة": "subtle Islamic geometric background",
             "خلفية شفافة مع ظل خفيف":
               "transparent background with a soft shadow",
           },
@@ -2526,10 +2536,7 @@
               merged.transparentReady,
               DEFAULT_STATE.transparentReady,
             );
-            merged.noMockup = safeBool(
-              merged.noMockup,
-              DEFAULT_STATE.noMockup,
-            );
+            merged.noMockup = safeBool(merged.noMockup, DEFAULT_STATE.noMockup);
             merged.centeredComposition = safeBool(
               merged.centeredComposition,
               DEFAULT_STATE.centeredComposition,
@@ -2785,8 +2792,7 @@
               ? "بدون إضاءة إضافية"
               : `بإضاءة ${s.lighting}`;
           const decorInstruction =
-            s.decor === "بدون زخارف" ||
-            s.decor === "بدون عناصر إضافية نهائيًا"
+            s.decor === "بدون زخارف" || s.decor === "بدون عناصر إضافية نهائيًا"
               ? "وتجنب أي زخارف أو عناصر إضافية غير مطلوبة"
               : `وأضف ${s.decor}`;
 
@@ -2805,8 +2811,7 @@
               ? "no additional lighting effects"
               : `with ${getTranslation("lighting", s.lighting, "premium studio lighting")}`;
           const decorInstruction =
-            s.decor === "بدون زخارف" ||
-            s.decor === "بدون عناصر إضافية نهائيًا"
+            s.decor === "بدون زخارف" || s.decor === "بدون عناصر إضافية نهائيًا"
               ? "avoid any additional ornaments or unrequested decorative marks"
               : `include ${getTranslation("decor", s.decor, "no additional ornaments")}`;
           let prompt = `Create an Arabic calligraphy artwork strictly and literally for the text "${fullText}". The only written Arabic content inside the design must be: ${literalText}. Do not add any unrequested words, letters, numbers, symbols, pseudo-Arabic filler, captions, or decorative marks that look like text. Use a ${getTranslation("mood", s.mood, "luxurious")} visual style and ${getTranslation("script", s.script, "custom Arabic calligraphy")}. The letters should feature ${getTranslation("interweave", s.interweave, "balanced interweaving")} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${getTranslation("composition", s.composition, "cohesive composition")}, suitable for a ${getTranslation("textType", s.textType, "calligraphic composition")}. Keep it ${getTranslation("readability", s.readability, "balanced between beauty and readability")}. Use a ${getTranslation("color", s.color, "luxurious gold")} palette with a ${getTranslation("background", s.background, "transparent background")}, ${lightingInstruction}, and ${decorInstruction}. Render it as ${getTranslation("rendering", s.rendering, "premium rendering")} with a ${getTranslation("details", s.details, "medium")} detail level in a ${s.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.`;
@@ -2859,7 +2864,8 @@
           }
 
           if (s.aiModel === "DALL-E 3") {
-            negative += ", Latin letters, English caption, explanatory caption, watermark";
+            negative +=
+              ", Latin letters, English caption, explanatory caption, watermark";
           }
 
           return negative;
@@ -3077,30 +3083,29 @@
             bonus += 8;
           if (
             state.textType === "اسم ثنائي" &&
-            ["droplet", "flame", "vstack", "oval", "crown"].includes(
-              templateId,
-            )
+            ["droplet", "flame", "vstack", "oval", "crown"].includes(templateId)
           )
             bonus += 7;
           if (
             state.textType === "اسم ثلاثي" &&
-            ["vstack", "free", "oval", "horiz", "banner"].includes(
-              templateId,
-            )
+            ["vstack", "free", "oval", "horiz", "banner"].includes(templateId)
           )
             bonus += 8;
           if (
             state.textType === "اسم مركب طويل" &&
-            ["vstack", "free", "horiz", "oval", "banner"].includes(
-              templateId,
-            )
+            ["vstack", "free", "horiz", "oval", "banner"].includes(templateId)
           )
             bonus += 9;
           if (
             state.textType === "عبارة قصيرة" &&
-            ["horiz", "vstack", "free", "droplet", "banner", "crescent"].includes(
-              templateId,
-            )
+            [
+              "horiz",
+              "vstack",
+              "free",
+              "droplet",
+              "banner",
+              "crescent",
+            ].includes(templateId)
           )
             bonus += 7;
           if (
@@ -3112,38 +3117,60 @@
             bonus += 8;
           if (
             state.textType === "آية قصيرة" &&
-            ["vstack", "free", "horiz", "oval", "mihrab", "dome", "crescent"].includes(
-              templateId,
-            )
+            [
+              "vstack",
+              "free",
+              "horiz",
+              "oval",
+              "mihrab",
+              "dome",
+              "crescent",
+            ].includes(templateId)
           )
             bonus += 7;
           if (
             state.textType === "دعاء قصير" &&
-            ["vstack", "droplet", "free", "oval", "mihrab", "crescent", "dome"].includes(
-              templateId,
-            )
+            [
+              "vstack",
+              "droplet",
+              "free",
+              "oval",
+              "mihrab",
+              "crescent",
+              "dome",
+            ].includes(templateId)
           )
             bonus += 8;
           if (
             state.textType === "بيت شعر قصير" &&
-            ["horiz", "free", "vstack", "oval", "banner"].includes(
-              templateId,
-            )
+            ["horiz", "free", "vstack", "oval", "banner"].includes(templateId)
           )
             bonus += 8;
           if (
             state.textType === "شعار أو اسم علامة" &&
-            ["sym", "circle", "horiz", "oval", "shield", "crown", "banner"].includes(
-              templateId,
-            )
+            [
+              "sym",
+              "circle",
+              "horiz",
+              "oval",
+              "shield",
+              "crown",
+              "banner",
+            ].includes(templateId)
           )
             bonus += 10;
 
           if (
             state.logoMode &&
-            ["sym", "circle", "horiz", "oval", "shield", "crown", "banner"].includes(
-              templateId,
-            )
+            [
+              "sym",
+              "circle",
+              "horiz",
+              "oval",
+              "shield",
+              "crown",
+              "banner",
+            ].includes(templateId)
           )
             bonus += 10;
           if (
