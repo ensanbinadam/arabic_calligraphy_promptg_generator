@@ -129,8 +129,12 @@
         position: relative;
         overflow: hidden;
         border-radius: var(--radius-xl);
-        padding: 34px 24px;
+        padding: 28px 24px;
         text-align: center;
+      }
+
+      .hero + .panel {
+        margin-top: 24px;
       }
 
       .hero::before {
@@ -155,17 +159,17 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 84px;
-        height: 84px;
-        border-radius: 26px;
+        width: 70px;
+        height: 70px;
+        border-radius: 22px;
         background: linear-gradient(135deg, var(--gold), var(--gold-light));
         box-shadow: 0 16px 34px rgba(212, 175, 55, 0.35);
-        font-size: 34px;
-        margin-bottom: 16px;
+        font-size: 30px;
+        margin-bottom: 12px;
       }
 
       .gradient-title {
-        margin: 0 0 10px;
+        margin: 0;
         font-size: clamp(2.2rem, 4vw, 4.6rem);
         line-height: 1.1;
         font-weight: 900;
@@ -373,10 +377,16 @@
       }
 
       .templates {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 16px;
+        display: flex;
+        flex-wrap: nowrap;
+        direction: rtl;
+        gap: 12px;
+        margin-top: 14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 2px 2px 12px;
+        scroll-snap-type: x proximity;
+        -webkit-overflow-scrolling: touch;
       }
 
       .template-toolbar {
@@ -422,7 +432,8 @@
       .template-card {
         position: relative;
         padding: 0;
-        border-radius: 24px;
+        flex: 0 0 178px;
+        border-radius: 16px;
         overflow: hidden;
         text-align: right;
         border: 1px solid rgba(212, 175, 55, 0.16);
@@ -431,8 +442,9 @@
           rgba(255, 255, 255, 0.96),
           rgba(249, 247, 241, 0.92)
         );
-        box-shadow: 0 14px 34px rgba(15, 23, 42, 0.1);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
         scroll-margin-top: 18px;
+        scroll-snap-align: start;
       }
 
       .template-card::after {
@@ -447,8 +459,8 @@
 
       .template-card:hover,
       .template-card:focus-visible {
-        transform: translateY(-4px);
-        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14);
       }
 
       .template-card.active::after {
@@ -461,7 +473,7 @@
 
       .template-card-media {
         position: relative;
-        aspect-ratio: 510 / 683;
+        aspect-ratio: 4 / 3;
         background: #0b0f19;
       }
 
@@ -474,16 +486,16 @@
 
       .template-card-badge {
         position: absolute;
-        top: 14px;
-        left: 14px;
+        top: 8px;
+        left: 8px;
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 8px 12px;
+        padding: 5px 8px;
         border-radius: 999px;
         background: rgba(17, 24, 39, 0.72);
         color: #fff;
-        font-size: 0.8rem;
+        font-size: 0.72rem;
         font-weight: 800;
         opacity: 0;
         transform: translateY(-4px);
@@ -497,22 +509,23 @@
       }
 
       .template-card-body {
-        padding: 14px 14px 16px;
+        padding: 10px 10px 12px;
       }
 
       .template-card-title {
-        margin: 0 0 6px;
+        margin: 0 0 4px;
         color: #111827;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 900;
       }
 
       .template-card-hint {
         margin: 0;
         color: #6b7280;
-        font-size: 0.88rem;
-        line-height: 1.7;
+        font-size: 0.75rem;
+        line-height: 1.45;
         font-weight: 700;
+        min-height: 2.9em;
       }
 
       .template-insight {
@@ -576,21 +589,21 @@
       }
 
       .template-card.active {
-        transform: translateY(-6px) scale(1.01);
+        transform: translateY(-3px);
         border-color: rgba(212, 175, 55, 0.34);
         box-shadow:
-          0 26px 52px rgba(212, 175, 55, 0.22),
-          0 16px 40px rgba(15, 23, 42, 0.14);
+          0 16px 30px rgba(212, 175, 55, 0.18),
+          0 12px 24px rgba(15, 23, 42, 0.12);
       }
 
       .template-card-reco {
         position: absolute;
-        top: 14px;
-        right: 14px;
+        top: 8px;
+        right: 8px;
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 8px 12px;
+        padding: 5px 8px;
         border-radius: 999px;
         background: linear-gradient(
           135deg,
@@ -598,7 +611,7 @@
           rgba(255, 240, 168, 0.96)
         );
         color: #4b3400;
-        font-size: 0.79rem;
+        font-size: 0.7rem;
         font-weight: 900;
         box-shadow: 0 10px 20px rgba(212, 175, 55, 0.24);
       }
@@ -613,37 +626,37 @@
         justify-content: space-between;
         gap: 10px;
         flex-wrap: wrap;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
       }
 
       .template-card-rank {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        padding: 6px 10px;
+        padding: 5px 8px;
         border-radius: 999px;
         background: rgba(17, 24, 39, 0.06);
         color: #4b5563;
-        font-size: 0.78rem;
+        font-size: 0.7rem;
         font-weight: 900;
       }
 
       .template-card-tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 10px;
+        gap: 6px;
+        margin-top: 8px;
       }
 
       .template-card-tag {
         display: inline-flex;
         align-items: center;
-        padding: 7px 10px;
+        padding: 5px 8px;
         border-radius: 999px;
         border: 1px solid rgba(212, 175, 55, 0.24);
         background: rgba(212, 175, 55, 0.08);
         color: #7a5a00;
-        font-size: 0.78rem;
+        font-size: 0.68rem;
         font-weight: 800;
       }
 
@@ -666,12 +679,6 @@
         box-shadow: 0 8px 18px rgba(212, 175, 55, 0.16);
       }
 
-      @media (max-width: 1100px) {
-        .templates {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
       @media (max-width: 680px) {
         .template-toolbar {
           flex-direction: column;
@@ -682,8 +689,8 @@
           width: 100%;
         }
 
-        .templates {
-          grid-template-columns: 1fr;
+        .template-card {
+          flex-basis: 156px;
         }
       }
 
@@ -1275,15 +1282,6 @@
       <header class="glass hero">
         <div class="hero-badge">✦</div>
         <h1 class="gradient-title">الخطاط العربي v7.1</h1>
-        <p>
-          مولّد برومبتات عربي احترافي محسّن للنشر المباشر على الإنترنت، مع بنية
-          أكثر ثباتًا ونسخ ذكي وترتيب بصري أذكى للقوالب:
-          <strong>البرومبت الأساسي يتولّد تلقائيًا</strong>، ويمكنك كذلك إضافة
-          ملاحظات يدوية تُلحق به تلقائيًا عند النسخ، أو تفعيل
-          <strong>تحرير يدوي كامل</strong> لكل برومبت عند الحاجة، مع
-          <strong>ترشيح تلقائي لأفضل التكوينات</strong>
-          بحسب نوع النص ووضع الشعار.
-        </p>
       </header>
 
       <section class="glass panel">
@@ -1403,6 +1401,7 @@
               <div class="grid grid-2">
                 <div class="field" id="field-color"></div>
                 <div class="field" id="field-background"></div>
+                <div class="field" id="field-lighting"></div>
                 <div class="field" id="field-decor"></div>
                 <div class="field" id="field-rendering"></div>
                 <div class="field" id="field-details"></div>
@@ -1742,6 +1741,10 @@
             "عبارة قصيرة",
             "آية قصيرة",
             "شعار أو اسم علامة",
+            "اسم مركب طويل",
+            "عبارة دعائية قصيرة",
+            "دعاء قصير",
+            "بيت شعر قصير",
           ],
           compositions: [
             "قطرة",
@@ -1753,6 +1756,12 @@
             "تكوين أفقي أنيق",
             "شعار متماثل",
             "تكوين حر متماسك",
+            "هلال",
+            "قبة",
+            "محراب",
+            "درع شعاري",
+            "تاج",
+            "شريط أفقي فاخر",
           ],
           scripts: [
             "حر مستوحى من الديواني",
@@ -1761,20 +1770,49 @@
             "كوفي ليّن",
             "خط حديث زخرفي",
             "خط عربي فاخر مخصص",
+            "نسخ واضح فاخر",
+            "رقعة فنية حديثة",
+            "كوفي هندسي",
+            "كوفي مربع",
+            "ديواني جلي",
+            "ثلث ملكي",
+            "مغربي أندلسي",
+            "طغراء عثمانية",
           ],
           interweaves: [
             "ترابط خفيف",
             "ترابط متوسط",
             "ترابط قوي",
             "اندماج كامل في كتلة واحدة",
+            "ترابط هندسي منظم",
+            "تداخل انسيابي ناعم",
+            "امتداد حروفي رأسي قوي",
+            "كتلة شعارية مضغوطة",
           ],
           readabilities: [
             "جمالي أكثر من مقروء",
             "متوازن بين الجمال والوضوح",
             "واضح قدر الإمكان",
             "مناسب للشعار مع وضوح متوسط",
+            "شديد الوضوح",
+            "وضوح عالٍ مع لمسة فنية",
+            "فني جدًا مع حفظ الحروف الأساسية",
           ],
-          moods: ["فاخر", "روحاني", "ملكي", "حديث", "بسيط", "هادئ", "نوراني"],
+          moods: [
+            "فاخر",
+            "روحاني",
+            "ملكي",
+            "حديث",
+            "بسيط",
+            "هادئ",
+            "نوراني",
+            "أندلسي",
+            "تراثي",
+            "احتفالي",
+            "رسمي",
+            "هادئ فاخر",
+            "مهيب",
+          ],
           colors: [
             "ذهبي فاخر",
             "أبيض نقي",
@@ -1786,6 +1824,13 @@
             "ذهبي مع كحلي",
             "أبيض مع توهج أزرق",
             "نحاسي معتّق",
+            "ذهبي وردي",
+            "عاجي مع ذهبي",
+            "أسود مع ذهبي",
+            "فيروزي",
+            "أخضر ملكي مع ذهبي",
+            "أحمر قاني",
+            "لؤلؤي",
           ],
           backgrounds: [
             "خلفية شفافة PNG",
@@ -1797,6 +1842,23 @@
             "خلفية فاخرة مزخرفة",
             "خلفية نجوم خفيفة",
             "خلفية بسيطة جدًا",
+            "خلفية ورق معتّق",
+            "خلفية رخامية فاخرة",
+            "خلفية مخملية داكنة",
+            "خلفية مسجد ضبابية",
+            "خلفية تدرج هادئ",
+            "خلفية هندسية إسلامية خافتة",
+            "خلفية شفافة مع ظل خفيف",
+          ],
+          lightings: [
+            "إضاءة استوديو فاخرة",
+            "إضاءة طبيعية ناعمة",
+            "إضاءة ذهبية دافئة",
+            "إضاءة جانبية درامية",
+            "توهج خلفي خفيف",
+            "إضاءة علوية ناعمة",
+            "انعكاس معدني خفيف",
+            "بدون إضاءة إضافية",
           ],
           decors: [
             "بدون زخارف",
@@ -1806,6 +1868,13 @@
             "إطار زخرفي بسيط",
             "نقاط ضوء فقط",
             "خامة ذهبية ناعمة",
+            "زخرفة نباتية عربية خفيفة",
+            "نمط هندسي إسلامي خافت",
+            "غبار ذهبي خفيف",
+            "حبيبات حبر دقيقة",
+            "ظل ناعم فقط",
+            "خط إطار داخلي رفيع",
+            "بدون عناصر إضافية نهائيًا",
           ],
           renderings: [
             "ذهبي بارز",
@@ -1816,9 +1885,24 @@
             "محفور على جلد",
             "طباعة فاخرة",
             "ختم شعاري",
+            "شعار فيكتور نظيف",
+            "حبر ذهبي على ورق",
+            "جل ذهبي لامع",
+            "خامة مخملية",
+            "نقش حجري",
+            "نيون عربي خفيف",
+            "طباعة حريرية",
           ],
-          details: ["بسيط", "متوسط", "عالٍ", "عالٍ جدًا وفخم"],
-          ratios: ["1:1", "4:5", "9:16", "16:9", "3:4"],
+          details: [
+            "بسيط",
+            "متوسط",
+            "عالٍ",
+            "عالٍ جدًا وفخم",
+            "دقيق جدًا",
+            "فائق الدقة للنشر",
+            "تفاصيل محددة بلا ازدحام",
+          ],
+          ratios: ["1:1", "4:5", "9:16", "16:9", "3:4", "2:3", "3:2", "5:4", "21:9"],
           models: [
             "عام (نانو بانانا / Midjourney)",
             "Midjourney (V6)",
@@ -1834,6 +1918,10 @@
             "عبارة قصيرة": "short phrase composition",
             "آية قصيرة": "short verse composition",
             "شعار أو اسم علامة": "logo or brand-name composition",
+            "اسم مركب طويل": "long compound-name composition",
+            "عبارة دعائية قصيرة": "short promotional phrase composition",
+            "دعاء قصير": "short supplication composition",
+            "بيت شعر قصير": "short poetry line composition",
           },
           composition: {
             قطرة: "droplet silhouette",
@@ -1846,6 +1934,12 @@
             "تكوين أفقي أنيق": "elegant horizontal composition",
             "شعار متماثل": "symmetrical logo-style composition",
             "تكوين حر متماسك": "cohesive freeform composition",
+            هلال: "crescent silhouette",
+            قبة: "dome-inspired silhouette",
+            محراب: "mihrab arch composition",
+            "درع شعاري": "crest shield logo composition",
+            تاج: "crown-like upper silhouette",
+            "شريط أفقي فاخر": "luxury horizontal banner composition",
           },
           script: {
             "حر مستوحى من الديواني":
@@ -1855,12 +1949,24 @@
             "كوفي ليّن": "soft Kufic-inspired calligraphy",
             "خط حديث زخرفي": "modern ornamental Arabic script",
             "خط عربي فاخر مخصص": "luxury custom Arabic calligraphy style",
+            "نسخ واضح فاخر": "clear premium Naskh-inspired calligraphy",
+            "رقعة فنية حديثة": "modern artistic Ruqah-inspired calligraphy",
+            "كوفي هندسي": "geometric Kufic calligraphy",
+            "كوفي مربع": "square Kufic calligraphy",
+            "ديواني جلي": "Jali Diwani-inspired calligraphy",
+            "ثلث ملكي": "royal Thuluth-inspired calligraphy",
+            "مغربي أندلسي": "Maghrebi Andalusian-inspired calligraphy",
+            "طغراء عثمانية": "Ottoman tughra-inspired calligraphic style",
           },
           interweave: {
             "ترابط خفيف": "light interweaving",
             "ترابط متوسط": "balanced interweaving",
             "ترابط قوي": "strong interweaving",
             "اندماج كامل في كتلة واحدة": "full fusion into one compact mass",
+            "ترابط هندسي منظم": "organized geometric interlocking",
+            "تداخل انسيابي ناعم": "smooth flowing interlacing",
+            "امتداد حروفي رأسي قوي": "strong vertical letterform extensions",
+            "كتلة شعارية مضغوطة": "compact logo-like calligraphic mass",
           },
           readability: {
             "جمالي أكثر من مقروء": "more artistic than literal",
@@ -1869,6 +1975,10 @@
             "واضح قدر الإمكان": "as readable as possible",
             "مناسب للشعار مع وضوح متوسط":
               "logo-friendly with moderate readability",
+            "شديد الوضوح": "highly readable",
+            "وضوح عالٍ مع لمسة فنية": "high readability with an artistic touch",
+            "فني جدًا مع حفظ الحروف الأساسية":
+              "highly artistic while preserving the essential Arabic letters",
           },
           mood: {
             فاخر: "luxurious",
@@ -1878,6 +1988,12 @@
             بسيط: "minimalist",
             هادئ: "calm",
             نوراني: "luminous",
+            أندلسي: "Andalusian",
+            تراثي: "heritage-inspired",
+            احتفالي: "celebratory",
+            رسمي: "formal",
+            "هادئ فاخر": "quiet luxury",
+            مهيب: "majestic",
           },
           color: {
             "ذهبي فاخر": "luxurious gold",
@@ -1890,6 +2006,13 @@
             "ذهبي مع كحلي": "gold with deep navy",
             "أبيض مع توهج أزرق": "white with a blue glow",
             "نحاسي معتّق": "antique copper",
+            "ذهبي وردي": "rose gold",
+            "عاجي مع ذهبي": "ivory with gold",
+            "أسود مع ذهبي": "black with gold",
+            فيروزي: "turquoise",
+            "أخضر ملكي مع ذهبي": "royal green with gold",
+            "أحمر قاني": "deep crimson",
+            لؤلؤي: "pearlescent white",
           },
           background: {
             "خلفية شفافة PNG": "transparent PNG background",
@@ -1901,6 +2024,25 @@
             "خلفية فاخرة مزخرفة": "luxurious ornamental background",
             "خلفية نجوم خفيفة": "subtle starry background",
             "خلفية بسيطة جدًا": "very minimal background",
+            "خلفية ورق معتّق": "aged paper background",
+            "خلفية رخامية فاخرة": "luxury marble background",
+            "خلفية مخملية داكنة": "dark velvet background",
+            "خلفية مسجد ضبابية": "soft blurred mosque background",
+            "خلفية تدرج هادئ": "calm subtle gradient background",
+            "خلفية هندسية إسلامية خافتة":
+              "subtle Islamic geometric background",
+            "خلفية شفافة مع ظل خفيف":
+              "transparent background with a soft shadow",
+          },
+          lighting: {
+            "إضاءة استوديو فاخرة": "premium studio lighting",
+            "إضاءة طبيعية ناعمة": "soft natural lighting",
+            "إضاءة ذهبية دافئة": "warm golden lighting",
+            "إضاءة جانبية درامية": "dramatic side lighting",
+            "توهج خلفي خفيف": "subtle back glow",
+            "إضاءة علوية ناعمة": "soft overhead lighting",
+            "انعكاس معدني خفيف": "subtle metallic reflections",
+            "بدون إضاءة إضافية": "no additional lighting effects",
           },
           decor: {
             "بدون زخارف": "no additional ornaments",
@@ -1910,6 +2052,14 @@
             "إطار زخرفي بسيط": "a simple decorative frame",
             "نقاط ضوء فقط": "small points of light only",
             "خامة ذهبية ناعمة": "a soft golden texture",
+            "زخرفة نباتية عربية خفيفة": "subtle Arabesque floral ornament",
+            "نمط هندسي إسلامي خافت": "subtle Islamic geometric pattern",
+            "غبار ذهبي خفيف": "light gold dust particles",
+            "حبيبات حبر دقيقة": "fine ink grain texture",
+            "ظل ناعم فقط": "soft shadow only",
+            "خط إطار داخلي رفيع": "thin inner border line",
+            "بدون عناصر إضافية نهائيًا":
+              "strictly no additional decorative elements",
           },
           rendering: {
             "ذهبي بارز": "embossed gold rendering",
@@ -1920,12 +2070,22 @@
             "محفور على جلد": "engraved leather rendering",
             "طباعة فاخرة": "luxury print-style rendering",
             "ختم شعاري": "logo-stamp rendering",
+            "شعار فيكتور نظيف": "clean vector logo rendering",
+            "حبر ذهبي على ورق": "gold ink on paper rendering",
+            "جل ذهبي لامع": "glossy golden gel rendering",
+            "خامة مخملية": "velvet-textured rendering",
+            "نقش حجري": "stone-carved engraving",
+            "نيون عربي خفيف": "subtle Arabic neon rendering",
+            "طباعة حريرية": "silkscreen print rendering",
           },
           details: {
             بسيط: "simple",
             متوسط: "medium",
             عالٍ: "high",
             "عالٍ جدًا وفخم": "very high and luxurious",
+            "دقيق جدًا": "very precise",
+            "فائق الدقة للنشر": "publication-ready ultra refined",
+            "تفاصيل محددة بلا ازدحام": "controlled detail without clutter",
           },
         };
 
@@ -1943,6 +2103,7 @@
           mood: "فاخر",
           color: "ذهبي فاخر",
           background: "خلفية شفافة PNG",
+          lighting: "إضاءة استوديو فاخرة",
           decor: "بدون زخارف",
           rendering: "ذهبي بارز",
           details: "متوسط",
@@ -1952,6 +2113,10 @@
           allowGlow: false,
           logoMode: false,
           strictHa: false,
+          vectorReady: false,
+          transparentReady: false,
+          noMockup: false,
+          centeredComposition: true,
           englishOutput: true,
           extraNotes: "",
           arabicAdditions: "",
@@ -1972,6 +2137,10 @@
           ["allowGlow", "توهج نوراني"],
           ["logoMode", "مناسب كشعار"],
           ["strictHa", "تأكيد الهاء بدون نقاط"],
+          ["vectorReady", "جاهز كشعار فيكتور"],
+          ["transparentReady", "جاهز للتفريغ PNG"],
+          ["noMockup", "منع الموك أب والنصوص الجانبية"],
+          ["centeredComposition", "توسيط التكوين"],
           ["englishOutput", "توليد نسخة إنجليزية"],
         ];
 
@@ -2041,6 +2210,45 @@
           },
         ];
 
+        TEMPLATES.push(
+          {
+            id: "crescent",
+            title: "تكوين هلال",
+            hint: "انحناءة هلالية مناسبة للدعاء والهوية الرمضانية",
+            image: "crescent.png",
+          },
+          {
+            id: "dome",
+            title: "تكوين قبة",
+            hint: "كتلة علوية مهيبة مستوحاة من القباب",
+            image: "dome.png",
+          },
+          {
+            id: "mihrab",
+            title: "تكوين محراب",
+            hint: "إطار قوسي روحاني مناسب للآيات والأدعية",
+            image: "niche.png",
+          },
+          {
+            id: "shield",
+            title: "درع شعاري",
+            hint: "هيئة شعارية صلبة للعلامات والهويات الرسمية",
+            image: "shield.png",
+          },
+          {
+            id: "crown",
+            title: "تكوين تاج",
+            hint: "قمة ملكية بارزة للأسماء والشعارات الفاخرة",
+            image: "crown.png",
+          },
+          {
+            id: "banner",
+            title: "شريط أفقي",
+            hint: "امتداد أفقي واضح للعبارات الدعائية والشعارات",
+            image: "Horizontal%20bar.png",
+          },
+        );
+
         const TEMPLATE_META = {
           droplet: {
             order: 1,
@@ -2087,6 +2295,36 @@
             tags: ["للعبارات", "للتكوينات الحرة"],
             scores: { names: 84, phrases: 90, logos: 76, general: 83 },
           },
+          crescent: {
+            order: 10,
+            tags: ["للأدعية", "للهوية الرمضانية"],
+            scores: { names: 72, phrases: 88, logos: 84, general: 82 },
+          },
+          dome: {
+            order: 11,
+            tags: ["للأدعية", "للطابع المهيب"],
+            scores: { names: 78, phrases: 86, logos: 82, general: 82 },
+          },
+          mihrab: {
+            order: 12,
+            tags: ["للآيات", "للأدعية"],
+            scores: { names: 70, phrases: 92, logos: 76, general: 80 },
+          },
+          shield: {
+            order: 13,
+            tags: ["للشعارات", "للهويات الرسمية"],
+            scores: { names: 80, phrases: 72, logos: 96, general: 82 },
+          },
+          crown: {
+            order: 14,
+            tags: ["للأسماء", "للشعارات الفاخرة"],
+            scores: { names: 86, phrases: 72, logos: 92, general: 80 },
+          },
+          banner: {
+            order: 15,
+            tags: ["للعبارات", "للنصوص الأفقية"],
+            scores: { names: 78, phrases: 94, logos: 88, general: 84 },
+          },
         };
 
         const TEMPLATE_MODE_LABELS = {
@@ -2095,6 +2333,32 @@
           logos: "للشعارات",
           general: "للاستخدام العام",
         };
+
+        const TEMPLATE_PRESETS = {
+          droplet: { composition: "قطرة" },
+          flame: { composition: "شعلة" },
+          oval: { composition: "بيضاوي رأسي" },
+          circle: { composition: "ختم دائري" },
+          vstack: { composition: "تكوين رأسي تراكبي", ratio: "4:5" },
+          vextend: { composition: "تكوين رأسي حرفي ممتد", ratio: "4:5" },
+          horiz: { composition: "تكوين أفقي أنيق" },
+          sym: { composition: "شعار متماثل" },
+          free: { composition: "تكوين حر متماسك" },
+          crescent: { composition: "هلال" },
+          dome: { composition: "قبة", ratio: "4:5" },
+          mihrab: { composition: "محراب", ratio: "4:5" },
+          shield: { composition: "درع شعاري" },
+          crown: { composition: "تاج" },
+          banner: { composition: "شريط أفقي فاخر", ratio: "16:9" },
+        };
+
+        const TEMPLATE_IDS = Object.keys(TEMPLATE_PRESETS);
+        const TEMPLATE_ID_BY_COMPOSITION = Object.fromEntries(
+          Object.entries(TEMPLATE_PRESETS).map(([id, preset]) => [
+            preset.composition,
+            id,
+          ]),
+        );
 
         const cloneDefaults = () => JSON.parse(JSON.stringify(DEFAULT_STATE));
         let state = loadState();
@@ -2114,6 +2378,28 @@
 
         function isAllowed(value, list, fallback) {
           return list.includes(value) ? value : fallback;
+        }
+
+        function getTemplateIdByComposition(composition) {
+          return TEMPLATE_ID_BY_COMPOSITION[composition] || "";
+        }
+
+        function normalizeStatePatch(partial) {
+          const next = { ...partial };
+          if (Object.prototype.hasOwnProperty.call(next, "composition")) {
+            const templateId = getTemplateIdByComposition(next.composition);
+            if (templateId) {
+              const preset = TEMPLATE_PRESETS[templateId];
+              next.selectedTemplateId = templateId;
+              if (
+                preset.ratio &&
+                !Object.prototype.hasOwnProperty.call(next, "ratio")
+              ) {
+                next.ratio = preset.ratio;
+              }
+            }
+          }
+          return next;
         }
 
         function loadState() {
@@ -2163,6 +2449,11 @@
               OPTIONS.backgrounds,
               DEFAULT_STATE.background,
             );
+            merged.lighting = isAllowed(
+              merged.lighting,
+              OPTIONS.lightings,
+              DEFAULT_STATE.lighting,
+            );
             merged.decor = isAllowed(
               merged.decor,
               OPTIONS.decors,
@@ -2203,10 +2494,17 @@
             merged.arabicManual = safeText(merged.arabicManual);
             merged.englishManual = safeText(merged.englishManual);
             merged.negativeManual = safeText(merged.negativeManual);
-            merged.selectedTemplateId = safeText(
-              merged.selectedTemplateId,
+            merged.selectedTemplateId = isAllowed(
+              safeText(
+                merged.selectedTemplateId,
+                DEFAULT_STATE.selectedTemplateId,
+              ),
+              TEMPLATE_IDS,
               DEFAULT_STATE.selectedTemplateId,
             );
+            merged.selectedTemplateId =
+              getTemplateIdByComposition(merged.composition) ||
+              merged.selectedTemplateId;
             merged.balanceWords = safeBool(
               merged.balanceWords,
               DEFAULT_STATE.balanceWords,
@@ -2221,6 +2519,22 @@
             );
             merged.logoMode = safeBool(merged.logoMode, DEFAULT_STATE.logoMode);
             merged.strictHa = safeBool(merged.strictHa, DEFAULT_STATE.strictHa);
+            merged.vectorReady = safeBool(
+              merged.vectorReady,
+              DEFAULT_STATE.vectorReady,
+            );
+            merged.transparentReady = safeBool(
+              merged.transparentReady,
+              DEFAULT_STATE.transparentReady,
+            );
+            merged.noMockup = safeBool(
+              merged.noMockup,
+              DEFAULT_STATE.noMockup,
+            );
+            merged.centeredComposition = safeBool(
+              merged.centeredComposition,
+              DEFAULT_STATE.centeredComposition,
+            );
             merged.englishOutput = safeBool(
               merged.englishOutput,
               DEFAULT_STATE.englishOutput,
@@ -2250,15 +2564,36 @@
           return safeText(text).trim().split(/\s+/).filter(Boolean).length;
         }
 
+        function getTextLines(s) {
+          return [safeText(s.textInput), safeText(s.textInput2)]
+            .map((part) => part.trim())
+            .filter(Boolean);
+        }
+
         function getFullText(s) {
-          const part1 = safeText(s.textInput).trim();
-          const part2 = safeText(s.textInput2).trim();
-          return [part1, part2].filter(Boolean).join("\n");
+          return getTextLines(s).join("\n");
         }
 
         function getTranslation(group, key, fallback) {
           const found = TRANSLATIONS[group] && TRANSLATIONS[group][key];
           return found || fallback || key || "";
+        }
+
+        function formatLiteralLines(lines, language) {
+          if (!lines.length) {
+            return language === "ar" ? "النص غير محدد" : "Text not specified";
+          }
+          return lines
+            .map((line, index) =>
+              language === "ar"
+                ? `السطر ${index + 1}: "${line}"`
+                : `line ${index + 1}: "${line}"`,
+            )
+            .join(language === "ar" ? "، " : "; ");
+        }
+
+        function getMidjourneyAspect(ratio) {
+          return OPTIONS.ratios.includes(ratio) ? ratio : DEFAULT_STATE.ratio;
         }
 
         function generateExtraInstructions(settings) {
@@ -2279,6 +2614,22 @@
               "مع التأكد التام من رسم الحرف الأخير كهاء (هـ/ه) بدون أي نقاط فوقها نهائيًا",
             );
           }
+          if (settings.vectorReady)
+            instructions.push(
+              "مع حواف نظيفة قابلة للتحويل إلى شعار فيكتور، وتجنب الضوضاء النقطية أو التفاصيل الصغيرة العشوائية",
+            );
+          if (settings.transparentReady)
+            instructions.push(
+              "مع إبقاء التكوين صالحًا للتفريغ كملف PNG شفاف بحواف واضحة ومنفصلة عن الخلفية",
+            );
+          if (settings.noMockup)
+            instructions.push(
+              "بدون موك أب أو لافتات أو مشاهد تغليف أو نصوص جانبية أو علامات مائية",
+            );
+          if (settings.centeredComposition)
+            instructions.push(
+              "مع توسيط الكتلة الخطية داخل مساحة العمل وترك هوامش متوازنة حولها",
+            );
 
           if (settings.composition === "تكوين رأسي تراكبي") {
             let text =
@@ -2324,8 +2675,11 @@
             );
           }
 
-          if (settings.extraNotes.trim())
-            instructions.push(settings.extraNotes.trim());
+          if (settings.extraNotes.trim()) {
+            instructions.push(
+              `التزم بالتوجيهات الإضافية التالية كأولوية نهائية ولا تهملها: ${settings.extraNotes.trim()}`,
+            );
+          }
 
           return instructions.join("، ");
         }
@@ -2348,6 +2702,22 @@
           if (settings.strictHa)
             instructions.push(
               "ensure the last letter is a dotless Ha (ه) and strictly NOT a Ta Marbuta (ة)",
+            );
+          if (settings.vectorReady)
+            instructions.push(
+              "keep the edges clean and vector-logo friendly, avoiding raster noise or random micro-details",
+            );
+          if (settings.transparentReady)
+            instructions.push(
+              "keep the composition suitable for transparent PNG cutout with crisp separated edges",
+            );
+          if (settings.noMockup)
+            instructions.push(
+              "no mockup scene, packaging, signage, side labels, watermark, or extra caption",
+            );
+          if (settings.centeredComposition)
+            instructions.push(
+              "center the calligraphic mass in the canvas with balanced margins",
             );
 
           if (settings.composition === "تكوين رأسي تراكبي") {
@@ -2394,37 +2764,62 @@
             );
           }
 
-          if (settings.extraNotes.trim())
-            instructions.push(settings.extraNotes.trim());
+          if (settings.extraNotes.trim()) {
+            instructions.push(
+              `treat this additional user guidance as mandatory and higher priority: ${settings.extraNotes.trim()}`,
+            );
+          }
 
           return instructions;
         }
 
         function generateArabicPrompt(s) {
+          const lines = getTextLines(s);
           const fullText = getFullText(s) || "النص غير محدد";
+          const literalText = formatLiteralLines(lines, "ar");
           const extra = generateExtraInstructions(s);
           const textTypeNote = s.textType.includes("اسم")
             ? "بحيث يظل توزيع الكلمات متناسقًا ويحافظ على شخصية الاسم"
             : "بحيث يخدم معنى العبارة ويحافظ على جاذبيتها البصرية";
+          const lightingInstruction =
+            s.lighting === "بدون إضاءة إضافية"
+              ? "بدون إضاءة إضافية"
+              : `بإضاءة ${s.lighting}`;
+          const decorInstruction =
+            s.decor === "بدون زخارف" ||
+            s.decor === "بدون عناصر إضافية نهائيًا"
+              ? "وتجنب أي زخارف أو عناصر إضافية غير مطلوبة"
+              : `وأضف ${s.decor}`;
 
-          return `صمّم النص "${fullText}" حرفيًا (بدون أي كلمات زائدة أو نقصان) كعمل خط عربي فني ${s.mood} بأسلوب ${s.script}، مع ${s.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام على هيئة ${s.composition} بما يناسب كونه ${s.textType}، ${textTypeNote}، مع الحفاظ على مستوى وضوح ${s.readability}. استخدم لونًا ${s.color}، مع ${s.background}، وأضف ${s.decor}. يكون الإخراج بأسلوب ${s.rendering}، وبتفاصيل ${s.details}، بنسبة تكوين ${s.ratio}${extra ? `، ${extra}` : ""}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
+          return `صمّم النص "${fullText}" حرفيًا كعمل خط عربي فني ${s.mood} بأسلوب ${s.script}. النص المطلوب الوحيد داخل التصميم هو: ${literalText}. لا تضف أي كلمات أو حروف أو أرقام أو رموز غير مذكورة، ولا تستخدم نصًا وهميًا أو زخرفة تشبه الحروف. اجعل ${s.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام على هيئة ${s.composition} بما يناسب كونه ${s.textType}، ${textTypeNote}، مع الحفاظ على مستوى وضوح ${s.readability}. استخدم لونًا ${s.color}، مع ${s.background}، ${lightingInstruction}، ${decorInstruction}. يكون الإخراج بأسلوب ${s.rendering}، وبتفاصيل ${s.details}، بنسبة تكوين ${s.ratio}${extra ? `، ${extra}` : ""}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
         }
 
         function generateEnglishPrompt(s) {
           if (!s.englishOutput) return "English output is disabled.";
 
+          const lines = getTextLines(s);
           const fullText = getFullText(s) || "Text not specified";
+          const literalText = formatLiteralLines(lines, "en");
           const extras = generateEnglishExtras(s);
-          let prompt = `Create an Arabic calligraphy artwork strictly and literally for the text "${fullText}" (no extra words or letters) in a ${getTranslation("mood", s.mood, "luxurious")} visual style, using ${getTranslation("script", s.script, "custom Arabic calligraphy")} . The letters should feature ${getTranslation("interweave", s.interweave, "balanced interweaving")} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${getTranslation("composition", s.composition, "cohesive composition")}, suitable for a ${getTranslation("textType", s.textType, "calligraphic composition")}. Keep it ${getTranslation("readability", s.readability, "balanced between beauty and readability")}. Use a ${getTranslation("color", s.color, "luxurious gold")} palette with a ${getTranslation("background", s.background, "transparent background")}, and include ${getTranslation("decor", s.decor, "no additional ornaments")}. Render it as ${getTranslation("rendering", s.rendering, "premium rendering")} with a ${getTranslation("details", s.details, "medium")} detail level in a ${s.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.`;
+          const lightingInstruction =
+            s.lighting === "بدون إضاءة إضافية"
+              ? "no additional lighting effects"
+              : `with ${getTranslation("lighting", s.lighting, "premium studio lighting")}`;
+          const decorInstruction =
+            s.decor === "بدون زخارف" ||
+            s.decor === "بدون عناصر إضافية نهائيًا"
+              ? "avoid any additional ornaments or unrequested decorative marks"
+              : `include ${getTranslation("decor", s.decor, "no additional ornaments")}`;
+          let prompt = `Create an Arabic calligraphy artwork strictly and literally for the text "${fullText}". The only written Arabic content inside the design must be: ${literalText}. Do not add any unrequested words, letters, numbers, symbols, pseudo-Arabic filler, captions, or decorative marks that look like text. Use a ${getTranslation("mood", s.mood, "luxurious")} visual style and ${getTranslation("script", s.script, "custom Arabic calligraphy")}. The letters should feature ${getTranslation("interweave", s.interweave, "balanced interweaving")} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${getTranslation("composition", s.composition, "cohesive composition")}, suitable for a ${getTranslation("textType", s.textType, "calligraphic composition")}. Keep it ${getTranslation("readability", s.readability, "balanced between beauty and readability")}. Use a ${getTranslation("color", s.color, "luxurious gold")} palette with a ${getTranslation("background", s.background, "transparent background")}, ${lightingInstruction}, and ${decorInstruction}. Render it as ${getTranslation("rendering", s.rendering, "premium rendering")} with a ${getTranslation("details", s.details, "medium")} detail level in a ${s.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.`;
 
           if (extras.length)
             prompt += ` Additional guidance: ${extras.join("; ")}.`;
 
           if (s.aiModel === "Midjourney (V6)") {
-            prompt += " --v 6 --style raw";
+            prompt += ` --ar ${getMidjourneyAspect(s.ratio)} --v 6 --style raw`;
           } else if (s.aiModel === "DALL-E 3") {
             prompt +=
-              " Prioritize crisp composition, premium clarity, and faithful Arabic letterforms.";
+              " Prioritize crisp composition, premium clarity, faithful Arabic letterforms, and no explanatory captions.";
           }
 
           return prompt.replace(/\s+/g, " ").trim();
@@ -2432,11 +2827,26 @@
 
         function generateNegativePrompt(s) {
           let negative =
-            "distorted Arabic letters, unreadable Arabic text, broken calligraphy, extra letters, extra words, duplicated words, filler text, pseudo-Arabic shapes, unrequested characters, standard digital font, typed text, computer font, duplicated strokes, messy composition, overcrowded layout, poor spacing, low quality, blurry details, malformed Arabic typography, disconnected letterforms, chaotic background, random ornaments, deformed curves";
+            "distorted Arabic letters, unreadable Arabic text, broken calligraphy, unrequested extra letters, unrequested extra words, duplicated words, filler text, pseudo-Arabic shapes, unrequested characters, standard digital font, typed text, computer font, duplicated strokes, messy composition, overcrowded layout, poor spacing, low quality, blurry details, malformed Arabic typography, disconnected letterforms, chaotic background, random ornaments, decorative marks that look like text, deformed curves";
 
           if (s.strictHa) {
             negative +=
               ", extra dots on the last letter, dots above the letter Ha, Ta Marbuta instead of Ha, two dots on top of the final letter";
+          }
+
+          if (s.vectorReady) {
+            negative +=
+              ", jagged edges, raster noise, messy micro details, low-resolution logo";
+          }
+
+          if (s.transparentReady) {
+            negative +=
+              ", merged background, hard-to-cut edges, dirty transparent edges";
+          }
+
+          if (s.noMockup) {
+            negative +=
+              ", mockup scene, packaging mockup, wall sign, product photo, side labels, explanatory caption, watermark";
           }
 
           if (s.composition === "تكوين رأسي تراكبي") {
@@ -2450,7 +2860,7 @@
           }
 
           if (s.aiModel === "DALL-E 3") {
-            negative += ", Latin letters, English caption, watermark";
+            negative += ", Latin letters, English caption, explanatory caption, watermark";
           }
 
           return negative;
@@ -2462,6 +2872,12 @@
           if (!cleanAdditions) return cleanBase;
           if (type === "negative") {
             return `${cleanBase}, ${cleanAdditions.replace(/^,\s*/, "")}`;
+          }
+          if (type === "english") {
+            return `${cleanBase}\n\nMandatory user additions: ${cleanAdditions}`;
+          }
+          if (type === "arabic") {
+            return `${cleanBase}\n\nتوجيهات المستخدم الإضافية الملزمة: ${cleanAdditions}`;
           }
           return `${cleanBase}\n\n${cleanAdditions}`;
         }
@@ -2531,79 +2947,36 @@
         }
 
         function updateState(key, value, { silent = true } = {}) {
-          state[key] = value;
+          state = { ...state, ...normalizeStatePatch({ [key]: value }) };
           saveState();
           renderAll();
           if (!silent) showToast("تم تحديث الإعداد.");
         }
 
         function setMultiple(partial, toastMessage) {
-          state = { ...state, ...partial };
+          state = { ...state, ...normalizeStatePatch(partial) };
           saveState();
           renderAll();
           if (toastMessage) showToast(toastMessage);
         }
 
         function applyTemplate(templateId) {
+          const preset = TEMPLATE_PRESETS[templateId];
+          if (!preset) {
+            showToast("تعذر تطبيق القالب المحدد.", true);
+            return;
+          }
+
           const next = {
-            textInput: "عِيدُكُم مُبَارَك",
-            textInput2: "",
-            textType: "عبارة قصيرة",
-            script: "حر مستوحى من الديواني",
-            color: "ذهبي فاخر",
-            background: "خلفية سوداء داكنة",
-            decor: "بدون زخارف",
-            mood: "فاخر",
-            strictHa: false,
-            footerText: "",
-            additionalElement: "",
-            extraNotes: "",
-            ratio: "1:1",
-            arabicAdditions: "",
-            englishAdditions: "",
-            negativeAdditions: "",
-            arabicManualEnabled: false,
-            englishManualEnabled: false,
-            negativeManualEnabled: false,
-            arabicManual: "",
-            englishManual: "",
-            negativeManual: "",
+            composition: preset.composition,
             selectedTemplateId: templateId,
           };
 
-          switch (templateId) {
-            case "droplet":
-              next.composition = "قطرة";
-              break;
-            case "flame":
-              next.composition = "شعلة";
-              break;
-            case "oval":
-              next.composition = "بيضاوي رأسي";
-              break;
-            case "circle":
-              next.composition = "ختم دائري";
-              break;
-            case "vstack":
-              next.composition = "تكوين رأسي تراكبي";
-              next.ratio = "4:5";
-              break;
-            case "vextend":
-              next.composition = "تكوين رأسي حرفي ممتد";
-              next.ratio = "4:5";
-              break;
-            case "horiz":
-              next.composition = "تكوين أفقي أنيق";
-              break;
-            case "sym":
-              next.composition = "شعار متماثل";
-              break;
-            case "free":
-              next.composition = "تكوين حر متماسك";
-              break;
+          if (preset.ratio) {
+            next.ratio = preset.ratio;
           }
 
-          setMultiple(next, "تم تطبيق القالب بنجاح 🎨");
+          setMultiple(next, "تم اختيار التكوين مع الحفاظ على النص والتوجيهات.");
           requestAnimationFrame(() => {
             const activeButton = document.querySelector(
               `.template-card[data-template-id="${templateId}"]`,
@@ -2626,9 +2999,14 @@
         }
 
         function syncManual(kind) {
-          const base = computePrompts();
+          const prompts = computePrompts();
+          const currentGenerated = mergePrompt(
+            prompts[kind].base,
+            state[`${kind}Additions`],
+            kind,
+          );
           state[`${kind}ManualEnabled`] = true;
-          state[`${kind}Manual`] = base[kind].effective;
+          state[`${kind}Manual`] = currentGenerated;
           saveState();
           renderAll();
           showToast("تم تحميل النص الحالي إلى وضع التحرير اليدوي ✍️");
@@ -2674,7 +3052,9 @@
           if (state.textType.includes("اسم")) return "names";
           if (
             state.textType.includes("عبارة") ||
-            state.textType.includes("آية")
+            state.textType.includes("آية") ||
+            state.textType.includes("دعاء") ||
+            state.textType.includes("بيت شعر")
           )
             return "phrases";
           return "general";
@@ -2691,55 +3071,106 @@
 
           if (
             state.textType === "اسم مفرد" &&
-            ["droplet", "flame", "vextend", "oval"].includes(templateId)
+            ["droplet", "flame", "vextend", "oval", "crown"].includes(
+              templateId,
+            )
           )
             bonus += 8;
           if (
             state.textType === "اسم ثنائي" &&
-            ["droplet", "flame", "vstack", "oval"].includes(templateId)
+            ["droplet", "flame", "vstack", "oval", "crown"].includes(
+              templateId,
+            )
           )
             bonus += 7;
           if (
             state.textType === "اسم ثلاثي" &&
-            ["vstack", "free", "oval", "horiz"].includes(templateId)
+            ["vstack", "free", "oval", "horiz", "banner"].includes(
+              templateId,
+            )
           )
             bonus += 8;
           if (
+            state.textType === "اسم مركب طويل" &&
+            ["vstack", "free", "horiz", "oval", "banner"].includes(
+              templateId,
+            )
+          )
+            bonus += 9;
+          if (
             state.textType === "عبارة قصيرة" &&
-            ["horiz", "vstack", "free", "droplet"].includes(templateId)
+            ["horiz", "vstack", "free", "droplet", "banner", "crescent"].includes(
+              templateId,
+            )
           )
             bonus += 7;
+          if (
+            state.textType === "عبارة دعائية قصيرة" &&
+            ["horiz", "sym", "circle", "free", "banner", "shield"].includes(
+              templateId,
+            )
+          )
+            bonus += 8;
           if (
             state.textType === "آية قصيرة" &&
-            ["vstack", "free", "horiz", "oval"].includes(templateId)
+            ["vstack", "free", "horiz", "oval", "mihrab", "dome", "crescent"].includes(
+              templateId,
+            )
           )
             bonus += 7;
           if (
+            state.textType === "دعاء قصير" &&
+            ["vstack", "droplet", "free", "oval", "mihrab", "crescent", "dome"].includes(
+              templateId,
+            )
+          )
+            bonus += 8;
+          if (
+            state.textType === "بيت شعر قصير" &&
+            ["horiz", "free", "vstack", "oval", "banner"].includes(
+              templateId,
+            )
+          )
+            bonus += 8;
+          if (
             state.textType === "شعار أو اسم علامة" &&
-            ["sym", "circle", "horiz", "oval"].includes(templateId)
+            ["sym", "circle", "horiz", "oval", "shield", "crown", "banner"].includes(
+              templateId,
+            )
           )
             bonus += 10;
 
           if (
             state.logoMode &&
-            ["sym", "circle", "horiz", "oval"].includes(templateId)
+            ["sym", "circle", "horiz", "oval", "shield", "crown", "banner"].includes(
+              templateId,
+            )
           )
             bonus += 10;
           if (
             totalWords >= 3 &&
-            ["vstack", "free", "horiz"].includes(templateId)
+            ["vstack", "free", "horiz", "banner"].includes(templateId)
           )
             bonus += 5;
           if (
             totalWords === 1 &&
-            ["droplet", "flame", "vextend"].includes(templateId)
+            ["droplet", "flame", "vextend", "crown", "crescent"].includes(
+              templateId,
+            )
           )
             bonus += 5;
           if (
             state.ratio === "4:5" &&
-            ["vstack", "vextend", "droplet", "flame", "oval"].includes(
-              templateId,
-            )
+            [
+              "vstack",
+              "vextend",
+              "droplet",
+              "flame",
+              "oval",
+              "dome",
+              "mihrab",
+              "crescent",
+            ].includes(templateId)
           )
             bonus += 3;
 
@@ -2989,13 +3420,19 @@
               "البرومبت العربي",
               prompts.arabic.effective,
               "",
-              "English Prompt",
-              prompts.english.effective,
-              "",
               "Negative Constraints",
               prompts.negative.effective,
-            ].join("\n");
-            copyText(payload, "تم نسخ جميع البرومبتات 🎉");
+            ];
+            if (state.englishOutput) {
+              payload.splice(
+                3,
+                0,
+                "English Prompt",
+                prompts.english.effective,
+                "",
+              );
+            }
+            copyText(payload.join("\n"), "تم نسخ جميع البرومبتات 🎉");
           });
 
           $("saveBtn").addEventListener("click", () => {
@@ -3042,6 +3479,7 @@
             "mood",
             "color",
             "background",
+            "lighting",
             "decor",
             "rendering",
             "details",
@@ -3176,6 +3614,12 @@
             "background",
             "الخلفية",
             OPTIONS.backgrounds,
+          );
+          renderSelect(
+            "field-lighting",
+            "lighting",
+            "الإضاءة",
+            OPTIONS.lightings,
           );
           renderSelect("field-decor", "decor", "الزخارف", OPTIONS.decors);
           renderSelect(
