@@ -186,12 +186,13 @@
 
       .hero p {
         position: relative;
-        max-width: 720px;
+        max-width: min(920px, 100%);
         margin: 12px auto 0;
         font-size: clamp(1rem, 1.4vw, 1.16rem);
         color: #4b5563;
         line-height: 1.75;
         font-weight: 700;
+        text-wrap: balance;
       }
 
       .hero p strong {
