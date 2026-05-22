@@ -2383,6 +2383,57 @@
           return OPTIONS.ratios.includes(ratio) ? ratio : DEFAULT_STATE.ratio;
         }
 
+        function getArabicCompositionGuard(settings) {
+          const guards = {
+            هلال:
+              "أولوية الشكل: يجب أن تكون الهيئة الخارجية هلالًا واضحًا ومفتوحًا، وليست دائرة أو ختمًا دائريًا أو حلقة مغلقة؛ اجعل أي عنصر إضافي تابعًا داخل الهلال أو بجواره دون تغيير شكل الهلال الأساسي",
+            قبة:
+              "أولوية الشكل: يجب أن تقرأ الهيئة الخارجية كقبة مهيبة واضحة بقوس علوي وقاعدة مستقرة، لا كدائرة أو كتلة عشوائية",
+            محراب:
+              "أولوية الشكل: يجب أن تظهر الهيئة الخارجية كمحراب عربي واضح بقوس داخلي وامتداد رأسي متوازن، لا كإطار دائري أو بوابة عشوائية",
+            "درع شعاري":
+              "أولوية الشكل: يجب أن تكون الهيئة الخارجية درعًا شعاريًا واضحًا بحدود قوية ومتوازنة، لا دائرة أو شريطًا أفقيًا",
+            تاج:
+              "أولوية الشكل: يجب أن توحي الهيئة الخارجية بتاج فاخر واضح وقمة مميزة، مع بقاء الحروف جزءًا من بنية التاج لا مجرد نص أسفله",
+            "شريط أفقي فاخر":
+              "أولوية الشكل: يجب أن يكون التكوين شريطًا أفقيًا واضحًا وممتدًا، لا كتلة دائرية أو رأسية، مع الحفاظ على تدفق القراءة العربي",
+          };
+          return guards[settings.composition] || "";
+        }
+
+        function getEnglishCompositionGuard(settings) {
+          const guards = {
+            هلال:
+              "Shape priority: the outer silhouette must clearly read as an open crescent, not a circle, circular seal, closed ring, or round emblem; any extra visual element must stay secondary inside or near the crescent without changing the crescent silhouette",
+            قبة:
+              "Shape priority: the outer silhouette must clearly read as a majestic dome with an arched top and stable base, not a circle or random mass",
+            محراب:
+              "Shape priority: the outer silhouette must clearly read as an Arabic mihrab niche with an inner arch and balanced vertical presence, not a circular frame or random gate",
+            "درع شعاري":
+              "Shape priority: the outer silhouette must clearly read as a heraldic shield with strong balanced borders, not a circle or horizontal banner",
+            تاج:
+              "Shape priority: the outer silhouette must clearly suggest a luxury crown with a distinct upper crest, with the letterforms integrated into the crown structure rather than placed below it",
+            "شريط أفقي فاخر":
+              "Shape priority: the composition must clearly read as an extended horizontal banner, not a circular or vertical mass, while preserving Arabic reading flow",
+          };
+          return guards[settings.composition] || "";
+        }
+
+        function getNegativeCompositionGuard(settings) {
+          const guards = {
+            هلال:
+              "full circle, circular seal, closed ring, round emblem, circle instead of crescent",
+            قبة: "circle instead of dome, random arch, unstable dome base",
+            محراب: "circle instead of mihrab, random doorway, broken arch frame",
+            "درع شعاري":
+              "circle instead of shield, banner instead of shield, weak shield outline",
+            تاج: "flat text below a crown, missing crown silhouette, random spikes",
+            "شريط أفقي فاخر":
+              "circle instead of horizontal banner, vertical stack instead of banner, narrow vertical poster",
+          };
+          return guards[settings.composition] || "";
+        }
+
         function generateExtraInstructions(settings) {
           const instructions = [];
           const totalWords =
@@ -2458,7 +2509,7 @@
 
           if (settings.additionalElement.trim()) {
             instructions.push(
-              `مع دمج عنصر أو شكل (${settings.additionalElement.trim()}) بأسلوب فني متناغم مع الخط`,
+              `مع دمج عنصر أو شكل (${settings.additionalElement.trim()}) كعنصر ثانوي متناغم مع الخط، دون أن يغيّر هيئة التكوين الأساسية أو يطغى عليها`,
             );
           }
 
@@ -2547,7 +2598,7 @@
 
           if (settings.additionalElement.trim()) {
             instructions.push(
-              `seamlessly integrate the visual element of (${settings.additionalElement.trim()}) into the calligraphic composition`,
+              `seamlessly integrate the visual element of (${settings.additionalElement.trim()}) as a secondary accent that must not override or change the main composition silhouette`,
             );
           }
 
@@ -2565,6 +2616,7 @@
           const fullText = getFullText(s) || "النص غير محدد";
           const literalText = formatLiteralLines(lines, "ar");
           const extra = generateExtraInstructions(s);
+          const compositionGuard = getArabicCompositionGuard(s);
           const textTypeNote = s.textType.includes("اسم")
             ? "بحيث يظل توزيع الكلمات متناسقًا ويحافظ على شخصية الاسم"
             : "بحيث يخدم معنى العبارة ويحافظ على جاذبيتها البصرية";
@@ -2577,7 +2629,7 @@
               ? "وتجنب أي زخارف أو عناصر إضافية غير مطلوبة"
               : `وأضف ${s.decor}`;
 
-          return `صمّم النص "${fullText}" حرفيًا كعمل خط عربي فني ${s.mood} بأسلوب ${s.script}. النص المطلوب الوحيد داخل التصميم هو: ${literalText}. لا تضف أي كلمات أو حروف أو أرقام أو رموز غير مذكورة، ولا تستخدم نصًا وهميًا أو زخرفة تشبه الحروف. حافظ على اتجاه الكتابة العربي الصحيح من اليمين إلى اليسار، واتصال الحروف العربية الطبيعي داخل كل كلمة، دون فصل الحروف أو قلب ترتيبها. اجعل ${s.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام على هيئة ${s.composition} بما يناسب كونه ${s.textType}، ${textTypeNote}، مع الحفاظ على مستوى وضوح ${s.readability}. استخدم لونًا ${s.color}، مع ${s.background}، ${lightingInstruction}، ${decorInstruction}. يكون الإخراج بأسلوب ${s.rendering}، وبتفاصيل ${s.details}، بنسبة تكوين ${s.ratio}${extra ? `، ${extra}` : ""}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
+          return `صمّم النص "${fullText}" حرفيًا كعمل خط عربي فني ${s.mood} بأسلوب ${s.script}. النص المطلوب الوحيد داخل التصميم هو: ${literalText}. لا تضف أي كلمات أو حروف أو أرقام أو رموز غير مذكورة، ولا تستخدم نصًا وهميًا أو زخرفة تشبه الحروف. مع مراعاة اتجاه الكتابة العربي من اليمين إلى اليسار واتصال الحروف داخل الكلمات. اجعل ${s.interweave} بين الحروف لتكوين كتلة بصرية واحدة متماسكة ومتوازنة. اجعل التكوين العام أولًا على هيئة ${s.composition} بما يناسب كونه ${s.textType}، ${textTypeNote}${compositionGuard ? `، ${compositionGuard}` : ""}، مع الحفاظ على مستوى وضوح ${s.readability}. استخدم لونًا ${s.color}، مع ${s.background}، ${lightingInstruction}، ${decorInstruction}. يكون الإخراج بأسلوب ${s.rendering}، وبتفاصيل ${s.details}، بنسبة تكوين ${s.ratio}${extra ? `، ${extra}` : ""}. ركّز على الفخامة، الانسجام، نظافة التكوين، جمالية الحروف العربية، وتجنّب التشويه والازدحام والعناصر العشوائية.`;
         }
 
         function generateEnglishPrompt(s) {
@@ -2587,6 +2639,7 @@
           const fullText = getFullText(s) || "Text not specified";
           const literalText = formatLiteralLines(lines, "en");
           const extras = generateEnglishExtras(s);
+          const compositionGuard = getEnglishCompositionGuard(s);
           const lightingInstruction =
             s.lighting === "بدون إضاءة إضافية"
               ? "no additional lighting effects"
@@ -2595,7 +2648,7 @@
             s.decor === "بدون زخارف" || s.decor === "بدون عناصر إضافية نهائيًا"
               ? "avoid any additional ornaments or unrequested decorative marks"
               : `include ${getTranslation("decor", s.decor, "no additional ornaments")}`;
-          let prompt = `Create an Arabic calligraphy artwork strictly and literally for the text "${fullText}". The only written Arabic content inside the design must be: ${literalText}. Do not add any unrequested words, letters, numbers, symbols, pseudo-Arabic filler, captions, or decorative marks that look like text. Preserve correct Arabic right-to-left writing direction and natural connected Arabic letterforms within each word; do not separate Arabic letters or reverse their order. Use a ${getTranslation("mood", s.mood, "luxurious")} visual style and ${getTranslation("script", s.script, "custom Arabic calligraphy")}. The letters should feature ${getTranslation("interweave", s.interweave, "balanced interweaving")} and merge into one cohesive, elegant composition. The overall silhouette should resemble a ${getTranslation("composition", s.composition, "cohesive composition")}, suitable for a ${getTranslation("textType", s.textType, "calligraphic composition")}. Keep it ${getTranslation("readability", s.readability, "balanced between beauty and readability")}. Use a ${getTranslation("color", s.color, "luxurious gold")} palette with a ${getTranslation("background", s.background, "transparent background")}, ${lightingInstruction}, and ${decorInstruction}. Render it as ${getTranslation("rendering", s.rendering, "premium rendering")} with a ${getTranslation("details", s.details, "medium")} detail level in a ${s.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.`;
+          let prompt = `Create an Arabic calligraphy artwork strictly and literally for the text "${fullText}". The only written Arabic content inside the design must be: ${literalText}. Do not add any unrequested words, letters, numbers, symbols, pseudo-Arabic filler, captions, or decorative marks that look like text. Preserve Arabic right-to-left direction and connected letterforms within words. Use a ${getTranslation("mood", s.mood, "luxurious")} visual style and ${getTranslation("script", s.script, "custom Arabic calligraphy")}. The letters should feature ${getTranslation("interweave", s.interweave, "balanced interweaving")} and merge into one cohesive, elegant composition. The overall silhouette must first prioritize a ${getTranslation("composition", s.composition, "cohesive composition")}, suitable for a ${getTranslation("textType", s.textType, "calligraphic composition")}. ${compositionGuard ? `${compositionGuard}. ` : ""}Keep it ${getTranslation("readability", s.readability, "balanced between beauty and readability")}. Use a ${getTranslation("color", s.color, "luxurious gold")} palette with a ${getTranslation("background", s.background, "transparent background")}, ${lightingInstruction}, and ${decorInstruction}. Render it as ${getTranslation("rendering", s.rendering, "premium rendering")} with a ${getTranslation("details", s.details, "medium")} detail level in a ${s.ratio} format. Focus on refined Arabic letterforms, harmony, premium aesthetics, organized structure, and avoid distortion, clutter, or random decorative noise.`;
 
           if (extras.length)
             prompt += ` Additional guidance: ${extras.join("; ")}.`;
@@ -2613,6 +2666,11 @@
         function generateNegativePrompt(s) {
           let negative =
             "distorted Arabic letters, unreadable Arabic text, broken calligraphy, wrong Arabic right-to-left direction, reversed Arabic text, separated Arabic letters, unrequested extra letters, unrequested extra words, duplicated words, filler text, pseudo-Arabic shapes, unrequested characters, standard digital font, typed text, computer font, duplicated strokes, messy composition, overcrowded layout, poor spacing, low quality, blurry details, malformed Arabic typography, disconnected letterforms, chaotic background, random ornaments, decorative marks that look like text, deformed curves";
+          const compositionNegative = getNegativeCompositionGuard(s);
+
+          if (compositionNegative) {
+            negative += `, ${compositionNegative}`;
+          }
 
           if (s.strictHa) {
             negative +=
